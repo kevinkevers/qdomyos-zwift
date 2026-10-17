@@ -161,8 +161,6 @@ class homeform : public QObject {
                    setGeneralPopupVisible)
     Q_PROPERTY(bool pelotonPopupVisible READ pelotonPopupVisible NOTIFY pelotonPopupVisibleChanged WRITE
                    setPelotonPopupVisible)
-    Q_PROPERTY(bool licensePopupVisible READ licensePopupVisible NOTIFY licensePopupVisibleChanged WRITE
-                   setLicensePopupVisible)
     Q_PROPERTY(bool mapsVisible READ mapsVisible NOTIFY mapsVisibleChanged WRITE setMapsVisible)
     Q_PROPERTY(bool videoIconVisible READ videoIconVisible NOTIFY videoIconVisibleChanged WRITE setVideoIconVisible)
     Q_PROPERTY(bool videoVisible READ videoVisible NOTIFY videoVisibleChanged WRITE setVideoVisible)
@@ -549,7 +547,6 @@ class homeform : public QObject {
     void setPelotonProvider(const QString &value) { m_pelotonProvider = value; }
     bool generalPopupVisible();
     bool pelotonPopupVisible();
-    bool licensePopupVisible();
     bool mapsVisible();
     bool videoIconVisible();
     bool videoVisible() { return m_VideoVisible; }
@@ -585,7 +582,6 @@ class homeform : public QObject {
         m_startRequested = value;
         emit startRequestedChanged(value);
     }
-    void setLicensePopupVisible(bool value);
     void setVideoIconVisible(bool value);
     void setChartIconVisible(bool value);
     void setVideoVisible(bool value) {
@@ -1043,7 +1039,6 @@ public:
     QString lastFoundDevice;
     bool m_generalPopupVisible = false;
     bool m_pelotonPopupVisible = false;
-    bool m_LicensePopupVisible = false;
     bool m_MapsVisible = false;
     bool m_VideoIconVisible = false;
     bool m_VideoVisible = false;
@@ -1211,12 +1206,6 @@ public:
     QTextToSpeech m_speech;
     int tts_summary_count = 0;
 
-#if defined(Q_OS_WIN) || (defined(Q_OS_MAC) && !defined(Q_OS_IOS)) || (defined(Q_OS_ANDROID) && defined(LICENSE))
-    QTimer tLicense;
-    QNetworkAccessManager *mgr = nullptr;
-    void licenseRequest();
-#endif
-
     QGeoPath gpx_preview;
     PathController pathController;
     bool videoMustBeReset = true;
@@ -1342,11 +1331,6 @@ public:
     void PauseFromDevice();  // Called when physical pause button pressed on hardware
     void StopFromDevice();   // Called when physical stop button pressed on hardware
 
-#if defined(Q_OS_WIN) || (defined(Q_OS_MAC) && !defined(Q_OS_IOS)) || (defined(Q_OS_ANDROID) && defined(LICENSE))
-    void licenseReply(QNetworkReply *reply);
-    void licenseTimeout();
-#endif
-
     void toggleAutoResistance() { setAutoResistance(!autoResistance()); }
 
   signals:
@@ -1389,7 +1373,6 @@ public:
     void androidNotificationPromptRequestedChanged(bool value);
     void generalPopupVisibleChanged(bool value);
     void pelotonPopupVisibleChanged(bool value);
-    void licensePopupVisibleChanged(bool value);
     void videoIconVisibleChanged(bool value);
     void videoVisibleChanged(bool value);
     void videoPositionChanged(int value);
