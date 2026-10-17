@@ -23,7 +23,7 @@ Page {
 	     id: settings
 		  property real ui_zoom: 100.0
 		  property bool theme_tile_icon_enabled: true
-		  property string theme_background_color: "#303030"
+		  property string theme_background_color: "#0E1116"
 		}
 
     Item {
@@ -116,6 +116,9 @@ Page {
                     id: start
                     width: 120
                     height: row.height - 4
+                    font.bold: true
+                    Material.background: "#171B22"
+                    Material.foreground: "white"
 
                     // VoiceOver accessibility
                     Accessible.role: Accessible.Button
@@ -146,6 +149,9 @@ Page {
                     id: stop
                     width: 120
                     height: row.height - 4
+                    font.bold: true
+                    Material.background: "#171B22"
+                    Material.foreground: "white"
 
                     // VoiceOver accessibility
                     Accessible.role: Accessible.Button
