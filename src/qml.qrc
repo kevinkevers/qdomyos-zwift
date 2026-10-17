@@ -6,6 +6,11 @@
         <file>Page2Form.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>Home.qml</file>
+        <file>DashboardMetric.qml</file>
+        <file>DashboardMainPage.qml</file>
+        <file>DashboardTrackPage.qml</file>
+        <file>DashboardChartsPage.qml</file>
+        <file>DashboardProfilePage.qml</file>
         <file>settings.qml</file>
         <file>settings-catalog.json</file>
         <file>AccordionElement.qml</file>
