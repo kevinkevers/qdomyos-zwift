@@ -1,0 +1,44 @@
+name: macOS build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ remove-patreon-license-check ]
+
+concurrency:
+  group: macos-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  macos-build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout smtpclient
+        uses: actions/checkout@v4
+        with:
+          repository: cagnulein/SmtpClient-for-Qt
+          path: src/smtpclient
+          ref: 3fa4a0fe5797070339422cf18b5e9ed8dcb91f9c
+
+      - name: Install Qt 5
+        run: brew install qt@5
+
+      - name: Build
+        run: |
+          mkdir -p build && cd build
+          /opt/homebrew/opt/qt@5/bin/qmake ../src/qdomyos-zwift.pro CONFIG-=static CONFIG+=sdk_no_version_check
+          make -j"$(sysctl -n hw.ncpu)"
+
+      - name: Bundle Qt frameworks
+        run: |
+          cd build
+          /opt/homebrew/opt/qt@5/bin/macdeployqt qdomyos-zwift.app -qmldir=../src -verbose=1
+          codesign --force --deep --sign - qdomyos-zwift.app
+          ditto -c -k --keepParent qdomyos-zwift.app qdomyos-zwift-macos-arm64.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qdomyos-zwift-macos-arm64
+          path: build/qdomyos-zwift-macos-arm64.zip
+          if-no-files-found: error
