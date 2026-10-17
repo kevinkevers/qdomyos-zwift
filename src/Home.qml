@@ -32,10 +32,10 @@ HomeForm {
         id: settings
         property real ui_zoom: 100.0
         property bool theme_tile_icon_enabled: true
-        property string theme_tile_background_color: "#303030"
-        property string theme_background_color: "#303030"
+        property string theme_tile_background_color: "#171B22"
+        property string theme_background_color: "#0E1116"
         property bool theme_tile_shadow_enabled: true
-        property string theme_tile_shadow_color: "#9C27B0"
+        property string theme_tile_shadow_color: "#7C5CFF"
         property int theme_tile_secondline_textsize: 12
         property bool skipLocationServicesDialog: false
         property bool trainprogram_sound_on_segment: false
@@ -348,6 +348,14 @@ HomeForm {
             width: gridView.cellWidth - gridView.tileGap
             height: 125 * settings.ui_zoom / 100
 
+            readonly property real zoom: settings.ui_zoom / 100
+            readonly property color tileColor: settings.theme_tile_background_color
+            readonly property color accentColor: settings.theme_tile_shadow_color
+            readonly property color mutedTextColor: Qt.rgba(1, 1, 1, 0.55)
+            readonly property bool showIcon: settings.theme_tile_icon_enabled && !largeButton
+            readonly property real stepperSize: 40 * zoom
+            readonly property real edgePadding: 12 * zoom
+
             visible: visibleItem
             Component.onCompleted: console.log("completed " + objectName)
 
@@ -373,64 +381,103 @@ HomeForm {
 
             transitions: Transition { NumberAnimation { property: "opacity"; duration: 200} }
 
+            DropShadow {
+                visible: settings.theme_tile_shadow_enabled
+                anchors.fill: rect
+                cached: true
+                horizontalOffset: 0
+                verticalOffset: 6 * zoom
+                radius: 18
+                samples: 37
+                color: Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.22)
+                source: rect
+            }
+
             Rectangle {
-                width: id1.width - 2 * settings.ui_zoom / 100
-                height: 123 * settings.ui_zoom / 100
-                radius: 3
+                width: id1.width - 2 * zoom
+                height: 123 * zoom
+                radius: 14 * zoom
                 border.width: 1
-                border.color: (settings.theme_tile_shadow_enabled ? settings.theme_tile_shadow_color : settings.theme_tile_background_color)
-                color: settings.theme_tile_background_color
+                border.color: settings.theme_tile_shadow_enabled
+                              ? Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.45)
+                              : Qt.rgba(1, 1, 1, 0.08)
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: Qt.lighter(id1.tileColor, 1.18) }
+                    GradientStop { position: 1.0; color: id1.tileColor }
+                }
                 id: rect
 
                 // Ignore for VoiceOver - decorative background only
                 Accessible.ignored: true
             }
 
-            DropShadow {
-                visible: settings.theme_tile_shadow_enabled
-                anchors.fill: rect
-                cached: true
-                horizontalOffset: 3
-                verticalOffset: 3
-                radius: 8.0
-                samples: 16
-                color: settings.theme_tile_shadow_color
-                source: rect
-            }
-
             Timer {
                 id: toggleIconTimer
                 interval: 500; running: true; repeat: true
-                onTriggered: { if(identificator === "inclination" && rootItem.autoInclinationEnabled()) myIcon.visible = !myIcon.visible; else myIcon.visible = settings.theme_tile_icon_enabled && !largeButton; }
+                onTriggered: { if(identificator === "inclination" && rootItem.autoInclinationEnabled()) myIcon.visible = !myIcon.visible; else myIcon.visible = showIcon; }
             }
 
             Image {
                 id: myIcon
-                x: 5
                 anchors {
-                         bottom: id1.bottom
+                    left: parent.left
+                    top: parent.top
+                    leftMargin: edgePadding
+                    topMargin: 10 * zoom
                 }
-                width: 48 * settings.ui_zoom / 100
-                height: 48 * settings.ui_zoom / 100
+                width: 20 * zoom
+                height: 20 * zoom
                 source: icon
-                visible: settings.theme_tile_icon_enabled && !largeButton
+                visible: showIcon
+                smooth: true
+                mipmap: true
+                opacity: 0.9
 
                 // Ignore for VoiceOver - decorative only
+                Accessible.ignored: true
+            }
+            Text {
+                id: myText
+                anchors {
+                    verticalCenter: myIcon.verticalCenter
+                    left: showIcon ? myIcon.right : parent.left
+                    right: parent.right
+                    leftMargin: showIcon ? 7 * zoom : edgePadding
+                    rightMargin: edgePadding
+                }
+                font.bold: true
+                font.pointSize: Math.max(9, labelFontSize - 2) * zoom
+                font.capitalization: Font.AllUppercase
+                font.letterSpacing: 1.2 * zoom
+                fontSizeMode: Text.HorizontalFit
+                minimumPointSize: 7
+                elide: Text.ElideRight
+                maximumLineCount: 1
+                color: mutedTextColor
+                text: name
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
+                visible: !largeButton
+
+                // Ignore for VoiceOver - parent Item handles accessibility
                 Accessible.ignored: true
             }
             Text {
                 objectName: "value"
                 id: myValue
                 color: valueFontColor
-                y: 0
                 anchors {
+                    top: parent.top
+                    topMargin: 32 * zoom
                     horizontalCenter: parent.horizontalCenter
                 }
                 text: value
                 horizontalAlignment: Text.AlignHCenter
-                width: Math.max(50, parent.width - (writable ? 100 * settings.ui_zoom / 100 : 12 * settings.ui_zoom / 100))
-                height: 58 * settings.ui_zoom / 100
-                font.pointSize: valueFontSize * settings.ui_zoom / 100
+                verticalAlignment: Text.AlignVCenter
+                width: Math.max(50, parent.width - (writable ? 2 * (stepperSize + 10 * zoom) : 2 * edgePadding))
+                height: 58 * zoom
+                font.pointSize: valueFontSize * zoom
+                font.letterSpacing: -0.5 * zoom
                 fontSizeMode: Text.Fit
                 minimumPointSize: 10
                 font.bold: true
@@ -442,17 +489,17 @@ HomeForm {
             Text {
                 objectName: "secondLine"
                 id: secondLineText
-                color: "white"
-                y: myValue.bottom
+                color: mutedTextColor
                 anchors {
                     top: myValue.bottom
                     horizontalCenter: parent.horizontalCenter
                 }
                 text: secondLine
                 horizontalAlignment: Text.AlignHCenter
-                width: Math.max(50, parent.width - 12 * settings.ui_zoom / 100)
-                height: 24 * settings.ui_zoom / 100
-                font.pointSize: settings.theme_tile_secondline_textsize * settings.ui_zoom / 100
+                verticalAlignment: Text.AlignVCenter
+                width: Math.max(50, parent.width - 2 * edgePadding)
+                height: 24 * zoom
+                font.pointSize: settings.theme_tile_secondline_textsize * zoom
                 fontSizeMode: Text.Fit
                 minimumPointSize: 7
                 font.bold: false
@@ -461,40 +508,27 @@ HomeForm {
                 // Ignore for VoiceOver - parent Item handles accessibility
                 Accessible.ignored: true
             }
-            Text {
-                id: myText
-                anchors {
-                    top: myIcon.top
-                    horizontalCenter: settings.theme_tile_icon_enabled ? undefined : parent.horizontalCenter
-                    left: settings.theme_tile_icon_enabled ? parent.left : undefined
-                }
-                font.bold: true
-                font.pointSize: labelFontSize
-                fontSizeMode: Text.Fit
-                minimumPointSize: 8
-                color: "white"
-                text: name
-                horizontalAlignment: settings.theme_tile_icon_enabled ? Text.AlignLeft : Text.AlignHCenter
-                anchors.leftMargin: settings.theme_tile_icon_enabled ? 55 * settings.ui_zoom / 100 : 0
-                width: Math.max(40, parent.width - (settings.theme_tile_icon_enabled ? 61 : 12) * settings.ui_zoom / 100)
-                height: 40 * settings.ui_zoom / 100
-                anchors.topMargin: 20 * settings.ui_zoom / 100
-                visible: !largeButton
-
-                // Ignore for VoiceOver - parent Item handles accessibility
-                Accessible.ignored: true
-            }
             RoundButton {
                 objectName: minusName
                 autoRepeat: true
-                text: "-"
+                text: "−"
                 onClicked: minus_clicked(objectName)
                 visible: writable && !largeButton
-                anchors.top: myValue.top
+                anchors.verticalCenter: myValue.verticalCenter
                 anchors.left: parent.left
-                anchors.leftMargin: 2
-                width: 48 * settings.ui_zoom / 100
-                height: 48 * settings.ui_zoom / 100
+                anchors.leftMargin: 8 * zoom
+                width: stepperSize
+                height: stepperSize
+                flat: true
+                font.pointSize: 16 * zoom
+                font.bold: true
+                Material.foreground: Qt.lighter(accentColor, 1.35)
+                background: Rectangle {
+                    radius: width / 2
+                    color: parent.down ? Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.35) : Qt.rgba(1, 1, 1, 0.08)
+                    border.width: 1
+                    border.color: Qt.rgba(1, 1, 1, 0.10)
+                }
 
                 // VoiceOver accessibility
                 Accessible.role: Accessible.Button
@@ -509,11 +543,21 @@ HomeForm {
                 text: "+"
                 onClicked: plus_clicked(objectName)
                 visible: writable && !largeButton
-                anchors.top: myValue.top
+                anchors.verticalCenter: myValue.verticalCenter
                 anchors.right: parent.right
-                anchors.rightMargin: 2
-                width: 48 * settings.ui_zoom / 100
-                height: 48 * settings.ui_zoom / 100
+                anchors.rightMargin: 8 * zoom
+                width: stepperSize
+                height: stepperSize
+                flat: true
+                font.pointSize: 16 * zoom
+                font.bold: true
+                Material.foreground: Qt.lighter(accentColor, 1.35)
+                background: Rectangle {
+                    radius: width / 2
+                    color: parent.down ? Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.35) : Qt.rgba(1, 1, 1, 0.08)
+                    border.width: 1
+                    border.color: Qt.rgba(1, 1, 1, 0.10)
+                }
 
                 // VoiceOver accessibility
                 Accessible.role: Accessible.Button
@@ -529,11 +573,15 @@ HomeForm {
                 onClicked: largeButton_clicked(objectName)
                 visible: largeButton
                 anchors.fill: rect
-                      background: Rectangle {
-                          color: largeButtonColor
-                            radius: 20
-                            }
-                font.pointSize: 20 * settings.ui_zoom / 100
+                Material.foreground: "white"
+                background: Rectangle {
+                    color: parent.down ? Qt.darker(largeButtonColor, 1.2) : largeButtonColor
+                    radius: 14 * zoom
+                    border.width: 1
+                    border.color: Qt.rgba(1, 1, 1, 0.12)
+                }
+                font.pointSize: 20 * zoom
+                font.bold: true
 
                 // VoiceOver accessibility
                 Accessible.role: Accessible.Button
@@ -560,7 +608,7 @@ HomeForm {
             id: dragHandle
             width: parent.width / 5
             height: 10
-            color: "#9C27B0"
+            color: settings.theme_tile_shadow_color
             anchors.top: parent.top
             anchors.horizontalCenter: parent.horizontalCenter
             visible: rootItem.chartFooterVisible || rootItem.videoVisible

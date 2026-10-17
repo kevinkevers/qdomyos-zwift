@@ -148,7 +148,8 @@ ApplicationWindow {
     Settings {
         id: settings
         property string profile_name: "default"        
-        property string theme_status_bar_background_color: "#800080"
+        property string theme_status_bar_background_color: "#0E1116"
+        property string theme_tile_shadow_color: "#7C5CFF"
         property bool volume_change_gears: false
         property string peloton_username: "username"
         property string peloton_password: "password"
@@ -288,10 +289,10 @@ ApplicationWindow {
         anchors.centerIn: parent
         width: Math.min(parent.width - 32, 520)
         height: Math.max(96, lapPromptLabel.implicitHeight + 44)
-        radius: 8
-        color: "#9C27B0"
-        border.color: "white"
-        border.width: 3
+        radius: 14
+        color: settings.theme_tile_shadow_color
+        border.color: Qt.rgba(1, 1, 1, 0.25)
+        border.width: 1
         opacity: visible ? 1 : 0
 
         Label {
@@ -1090,6 +1091,7 @@ ApplicationWindow {
         contentHeight: toolButton.implicitHeight
         Material.primary: settings.theme_status_bar_background_color
         id: headerToolbar
+        Material.elevation: 0
         // Opacity, not visible: some pages set headerToolbar.visible themselves
         opacity: window.rootReady ? 1 : 0
         property bool settingsPageActive: stackView.currentItem && typeof stackView.currentItem.showSettingsSearch === "function"

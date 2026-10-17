@@ -59,14 +59,14 @@ ApplicationWindow {
     Settings {
         id: settings
         property string profile_name: "default"        
-        property string theme_status_bar_background_color: "#800080"
+        property string theme_status_bar_background_color: "#0E1116"
         property bool volume_change_gears: false
         property real ui_zoom: 100.0
         property bool theme_tile_icon_enabled: true
-        property string theme_tile_background_color: "#303030"
-        property string theme_background_color: "#303030"
+        property string theme_tile_background_color: "#171B22"
+        property string theme_background_color: "#0E1116"
         property bool theme_tile_shadow_enabled: true
-        property string theme_tile_shadow_color: "#9C27B0"
+        property string theme_tile_shadow_color: "#7C5CFF"
         property int theme_tile_secondline_textsize: 12
 		
     }

@@ -38,7 +38,7 @@ Page {
         property bool zwift_play: false
         property double gears_gain: 1.0
         property bool tile_gears_enabled: false
-        property string theme_background_color: "#303030"
+        property string theme_background_color: "#0E1116"
         property bool wahoo_rgt_dircon: false
         property bool virtual_device_rower: false
         property real weight: 75.0

@@ -1551,13 +1551,13 @@ import AndroidStatusBar 1.0
 
             // from version 2.13.37
             property bool theme_tile_icon_enabled: true
-            property string theme_tile_background_color: "#303030"
-            property string theme_status_bar_background_color: "#800080"
+            property string theme_tile_background_color: "#171B22"
+            property string theme_status_bar_background_color: "#0E1116"
 
             // from version 2.13.43
-            property string theme_background_color: "#303030"
+            property string theme_background_color: "#0E1116"
             property bool theme_tile_shadow_enabled: true
-            property string theme_tile_shadow_color: "#9C27B0"
+            property string theme_tile_shadow_color: "#7C5CFF"
 
             // from version 2.13.44
             property double gears_gain: 1.0
