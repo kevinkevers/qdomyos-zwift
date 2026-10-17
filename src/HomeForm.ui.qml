@@ -65,6 +65,22 @@ Page {
             anchors.verticalCenter: parent.verticalCenter
             spacing: 8
 
+            // The carousel takes the swipe from the left edge that used to open the menu
+            RoundButton {
+                anchors.verticalCenter: parent.verticalCenter
+                width: 48
+                height: 48
+                text: "☰"
+                font.pixelSize: 22
+                Material.background: "#171B22"
+                Material.foreground: "white"
+                onClicked: drawer.open()
+
+                Accessible.role: Accessible.Button
+                Accessible.name: qsTr("Menu")
+                Accessible.focusable: true
+            }
+
             Item {
                 width: 30
                 height: 30
@@ -105,7 +121,7 @@ Page {
             }
             Label {
                 anchors.verticalCenter: parent.verticalCenter
-                width: Math.max(0, bottomBar.width / 2 - row.width / 2 - 70)
+                width: Math.max(0, bottomBar.width / 2 - row.width / 2 - 126)
                 elide: Text.ElideRight
                 maximumLineCount: 2
                 wrapMode: Text.WordWrap
