@@ -90,7 +90,8 @@ Item {
 
             RowLayout {
                 Layout.fillWidth: true
-                Layout.preferredHeight: Math.min(72, page.height * 0.13)
+                Layout.preferredHeight: 56
+                Layout.maximumHeight: 56
                 spacing: 8
 
                 Repeater {
@@ -100,10 +101,21 @@ Item {
                                                         && Math.abs(parseFloat(page.tiles.speed.value) - modelData) < 0.05
                         Layout.fillWidth: true
                         Layout.fillHeight: true
+                        Layout.minimumWidth: 0
+                        Layout.preferredWidth: 1
+                        padding: 0
+                        topInset: 0
+                        bottomInset: 0
                         text: modelData
-                        font.pixelSize: Math.min(height * 0.42, 26)
+                        font.pixelSize: 22
                         font.bold: true
-                        Material.foreground: "white"
+                        contentItem: Text {
+                            text: parent.text
+                            font: parent.font
+                            color: "white"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                         background: Rectangle {
                             radius: 12
                             color: parent.down || parent.current ? page.accent : Qt.rgba(1, 1, 1, 0.06)
@@ -152,6 +164,7 @@ Item {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     tile: page.tiles.elevation
+                    label: tile ? tile.name.split(" (")[0] : ""
                     accent: page.accent
                     valueScale: 0.3
                 }
