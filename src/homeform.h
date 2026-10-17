@@ -251,6 +251,7 @@ class homeform : public QObject {
     Q_INVOKABLE int trainProgramElapsedSeconds();
     // Tap on the Bluetooth icon: search right away, or when Android allows it again (with a toast saying when)
     Q_INVOKABLE void bluetoothSearchNow();
+    Q_INVOKABLE void setTreadmillSpeed(double kmh);
     Q_INVOKABLE void save_screenshot() {
 
         QString path = getWritableAppDir();
