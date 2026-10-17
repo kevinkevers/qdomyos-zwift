@@ -173,6 +173,7 @@ class homeform : public QObject {
     Q_PROPERTY(int videoPosition READ videoPosition NOTIFY videoPositionChanged WRITE setVideoPosition)
     Q_PROPERTY(double videoRate READ videoRate NOTIFY videoRateChanged WRITE setVideoRate)
     Q_PROPERTY(double currentSpeed READ currentSpeed NOTIFY currentSpeedChanged)
+    Q_PROPERTY(QVariantMap dashboardTiles READ dashboardTiles CONSTANT)
     Q_PROPERTY(int pelotonLogin READ pelotonLogin NOTIFY pelotonLoginChanged)
     Q_PROPERTY(int pzpLogin READ pzpLogin NOTIFY pzpLoginChanged)
     Q_PROPERTY(int zwiftLogin READ zwiftLogin NOTIFY zwiftLoginChanged)
@@ -243,6 +244,11 @@ class homeform : public QObject {
     // Status line of the search for the equipment on the home page, with the last device found;
     // empty once it is connected
     Q_INVOKABLE QString bluetoothSearchStatus();
+    // Every tile by its identificator, enabled in the tile settings or not, for the dashboard pages
+    QVariantMap dashboardTiles();
+    // Rows of the loaded training program as {seconds, speed, inclination}; empty without a program
+    Q_INVOKABLE QVariantList trainProgramProfile();
+    Q_INVOKABLE int trainProgramElapsedSeconds();
     // Tap on the Bluetooth icon: search right away, or when Android allows it again (with a toast saying when)
     Q_INVOKABLE void bluetoothSearchNow();
     Q_INVOKABLE void save_screenshot() {
