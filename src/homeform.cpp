@@ -1977,6 +1977,35 @@ void homeform::refresh_bluetooth_devices_clicked() {
     bluetoothManager->restart();
 }
 
+QVariantMap homeform::dashboardTiles() {
+    QVariantMap tiles;
+    for (DataObject *tile : {speed, inclination, elevation, elapsed, datetime, fan, odometer, heart, calories, pace,
+                             target_speed, target_incline, remaningTimeTrainingProgramCurrentRow}) {
+        tiles.insert(tile->identificator(), QVariant::fromValue(static_cast<QObject *>(tile)));
+    }
+    return tiles;
+}
+
+QVariantList homeform::trainProgramProfile() {
+    QVariantList profile;
+    if (!trainProgram)
+        return profile;
+    for (const trainrow &row : qAsConst(trainProgram->rows)) {
+        QVariantMap step;
+        step.insert(QStringLiteral("seconds"), QTime(0, 0, 0).secsTo(row.duration));
+        step.insert(QStringLiteral("speed"), row.speed);
+        step.insert(QStringLiteral("inclination"), row.inclination);
+        profile.append(step);
+    }
+    return profile;
+}
+
+int homeform::trainProgramElapsedSeconds() {
+    if (!trainProgram)
+        return 0;
+    return QTime(0, 0, 0).secsTo(trainProgram->totalElapsedTime());
+}
+
 QString homeform::bluetoothSearchStatus() {
     if (!bluetoothManager || bluetoothManager->device())
         return QString();

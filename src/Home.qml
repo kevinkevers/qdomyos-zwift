@@ -39,6 +39,7 @@ HomeForm {
         property int theme_tile_secondline_textsize: 12
         property bool skipLocationServicesDialog: false
         property bool trainprogram_sound_on_segment: false
+        property int dashboard_page: 0
     }
 
     SoundEffect {
@@ -319,288 +320,477 @@ HomeForm {
         }
     }
 
-    GridView {
-        anchors.horizontalCenter: parent.horizontalCenter
+    dashboardTiles: typeof rootItem === "undefined" || !rootItem ? ({}) : rootItem.dashboardTiles
+    speedMinus.onClicked: minus_clicked("speed_minus")
+    speedPlus.onClicked: plus_clicked("speed_plus")
+    inclineMinus.onClicked: minus_clicked("inclination_minus")
+    inclinePlus.onClicked: plus_clicked("inclination_plus")
+
+    Connections {
+        target: window
+        function onLockTilesChanged() {
+            if (window.lockTiles)
+                swipeView.currentIndex = swipeView.count - 1
+        }
+    }
+
+    SwipeView {
+        id: swipeView
         anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        // The tiles stretch to fill the row: the space left over by a whole number of columns
-        // is shared between the columns, up to a quarter of the tile width, and what remains
-        // centres the grid. Measured on the page, so the Android insets are excluded.
-        // The grid is exactly as wide as its columns and centred by the anchor above, not
-        // by leftMargin: Qt 5.15 does not recount the columns when leftMargin changes, so
-        // after a resize a row could come out one column short
-        readonly property real tileBaseWidth: 175 * settings.ui_zoom / 100
-        readonly property int tileColumns: Math.max(1, Math.floor(parent.width / tileBaseWidth))
-        cellWidth: Math.floor(Math.min(parent.width / tileColumns, tileBaseWidth * 1.25))
-        width: tileColumns * cellWidth
-        // Every tile is narrower than its cell by tileGap and sits at the cell's left edge, so the
-        // last column ends with the gap: the grid is shifted by half the gap, so the outer margins
-        // are equal
-        readonly property real tileGap: 5 * settings.ui_zoom / 100
-        anchors.horizontalCenterOffset: tileGap / 2
-        cellHeight: 130 * settings.ui_zoom / 100
-        focus: true
-        model: appModel
-        anchors.topMargin: (!window.lockTiles ? rootItem.topBarHeight + 30 : 0)
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: bottomBar.top
+        clip: true
         interactive: !window.lockTiles
-        id: gridView
-        objectName: "gridview"
-        onMovementEnded: { headerToolbar.visible = (contentY == 0) || window.lockTiles; }
-        Screen.orientationUpdateMask:  Qt.LandscapeOrientation | Qt.PortraitOrientation | Qt.InvertedLandscapeOrientation | Qt.InvertedPortraitOrientation
-        Screen.onPrimaryOrientationChanged:{
-            // Nothing to recompute: cellWidth and the grid width follow the page width
+        currentIndex: settings.dashboard_page
+        onCurrentIndexChanged: settings.dashboard_page = currentIndex
+
+        DashboardMainPage {
+            tiles: dashboardTiles
+            accent: settings.theme_tile_shadow_color
+            onPlusClicked: plus_clicked(name)
+            onMinusClicked: minus_clicked(name)
+        }
+        DashboardTrackPage {
+            tiles: dashboardTiles
+            accent: settings.theme_tile_shadow_color
+            miles: typeof rootItem !== "undefined" && rootItem ? rootItem.miles_unit : false
+        }
+        DashboardChartsPage {
+            tiles: dashboardTiles
+        }
+        DashboardProfilePage {
+            tiles: dashboardTiles
+            accent: settings.theme_tile_shadow_color
         }
 
-        Accessible.ignored: true
+        Item {
+            id: gridPage
 
-        delegate: Item {
-            id: id1
-            width: gridView.cellWidth - gridView.tileGap
-            height: 125 * settings.ui_zoom / 100
-
-            readonly property real zoom: settings.ui_zoom / 100
-            readonly property color tileColor: settings.theme_tile_background_color
-            readonly property color accentColor: settings.theme_tile_shadow_color
-            readonly property color mutedTextColor: Qt.rgba(1, 1, 1, 0.55)
-            readonly property bool showIcon: settings.theme_tile_icon_enabled && !largeButton
-            readonly property real stepperSize: 40 * zoom
-            readonly property real edgePadding: 12 * zoom
-
-            visible: visibleItem
-            Component.onCompleted: console.log("completed " + objectName)
-
-            // VoiceOver accessibility support
-            Accessible.role: largeButton ? Accessible.Button : (writable ? Accessible.Pane : Accessible.StaticText)
-            Accessible.name: name + (largeButton ? "" : (": " + value))
-            Accessible.description: largeButton ? largeButtonLabel : (secondLine !== "" ? secondLine : (writable ? qsTr("Adjustable. Current value: ") + value : qsTr("Current value: ") + value))
-            Accessible.focusable: true
-
-
-            SequentialAnimation on rotation {
-                NumberAnimation { to:  2; duration: 60 }
-                NumberAnimation { to: -2; duration: 120 }
-                NumberAnimation { to:  0; duration: 60 }
-                running: loc.currentId !== -1 && id1.state !== "active" && window.lockTiles
-                loops: Animation.Infinite; alwaysRunToEnd: true
-            }
-
-            states: State {
-                name: "active"; when: loc.currentId === gridId && window.lockTiles
-                PropertyChanges { target: id1; opacity: 0.3 }
-            }
-
-            transitions: Transition { NumberAnimation { property: "opacity"; duration: 200} }
-
-            DropShadow {
-                visible: settings.theme_tile_shadow_enabled
-                anchors.fill: rect
-                cached: true
-                horizontalOffset: 0
-                verticalOffset: 6 * zoom
-                radius: 18
-                samples: 37
-                color: Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.22)
-                source: rect
-            }
-
-            Rectangle {
-                width: id1.width - 2 * zoom
-                height: 123 * zoom
-                radius: 14 * zoom
-                border.width: 1
-                border.color: settings.theme_tile_shadow_enabled
-                              ? Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.45)
-                              : Qt.rgba(1, 1, 1, 0.08)
-                gradient: Gradient {
-                    GradientStop { position: 0.0; color: Qt.lighter(id1.tileColor, 1.18) }
-                    GradientStop { position: 1.0; color: id1.tileColor }
+            GridView {
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                // The tiles stretch to fill the row: the space left over by a whole number of columns
+                // is shared between the columns, up to a quarter of the tile width, and what remains
+                // centres the grid. Measured on the page, so the Android insets are excluded.
+                // The grid is exactly as wide as its columns and centred by the anchor above, not
+                // by leftMargin: Qt 5.15 does not recount the columns when leftMargin changes, so
+                // after a resize a row could come out one column short
+                readonly property real tileBaseWidth: 175 * settings.ui_zoom / 100
+                readonly property int tileColumns: Math.max(1, Math.floor(parent.width / tileBaseWidth))
+                cellWidth: Math.floor(Math.min(parent.width / tileColumns, tileBaseWidth * 1.25))
+                width: tileColumns * cellWidth
+                // Every tile is narrower than its cell by tileGap and sits at the cell's left edge, so the
+                // last column ends with the gap: the grid is shifted by half the gap, so the outer margins
+                // are equal
+                readonly property real tileGap: 5 * settings.ui_zoom / 100
+                anchors.horizontalCenterOffset: tileGap / 2
+                cellHeight: 130 * settings.ui_zoom / 100
+                focus: true
+                model: appModel
+                anchors.topMargin: 8
+                interactive: !window.lockTiles
+                id: gridView
+                objectName: "gridview"
+                onMovementEnded: { headerToolbar.visible = (contentY == 0) || window.lockTiles; }
+                Screen.orientationUpdateMask:  Qt.LandscapeOrientation | Qt.PortraitOrientation | Qt.InvertedLandscapeOrientation | Qt.InvertedPortraitOrientation
+                Screen.onPrimaryOrientationChanged:{
+                    // Nothing to recompute: cellWidth and the grid width follow the page width
                 }
-                id: rect
 
-                // Ignore for VoiceOver - decorative background only
                 Accessible.ignored: true
+
+                delegate: Item {
+                    id: id1
+                    width: gridView.cellWidth - gridView.tileGap
+                    height: 125 * settings.ui_zoom / 100
+
+                    readonly property real zoom: settings.ui_zoom / 100
+                    readonly property color tileColor: settings.theme_tile_background_color
+                    readonly property color accentColor: settings.theme_tile_shadow_color
+                    readonly property color mutedTextColor: Qt.rgba(1, 1, 1, 0.55)
+                    readonly property bool showIcon: settings.theme_tile_icon_enabled && !largeButton
+                    readonly property real stepperSize: 40 * zoom
+                    readonly property real edgePadding: 12 * zoom
+
+                    visible: visibleItem
+                    Component.onCompleted: console.log("completed " + objectName)
+
+                    // VoiceOver accessibility support
+                    Accessible.role: largeButton ? Accessible.Button : (writable ? Accessible.Pane : Accessible.StaticText)
+                    Accessible.name: name + (largeButton ? "" : (": " + value))
+                    Accessible.description: largeButton ? largeButtonLabel : (secondLine !== "" ? secondLine : (writable ? qsTr("Adjustable. Current value: ") + value : qsTr("Current value: ") + value))
+                    Accessible.focusable: true
+
+
+                    SequentialAnimation on rotation {
+                        NumberAnimation { to:  2; duration: 60 }
+                        NumberAnimation { to: -2; duration: 120 }
+                        NumberAnimation { to:  0; duration: 60 }
+                        running: loc.currentId !== -1 && id1.state !== "active" && window.lockTiles
+                        loops: Animation.Infinite; alwaysRunToEnd: true
+                    }
+
+                    states: State {
+                        name: "active"; when: loc.currentId === gridId && window.lockTiles
+                        PropertyChanges { target: id1; opacity: 0.3 }
+                    }
+
+                    transitions: Transition { NumberAnimation { property: "opacity"; duration: 200} }
+
+                    DropShadow {
+                        visible: settings.theme_tile_shadow_enabled
+                        anchors.fill: rect
+                        cached: true
+                        horizontalOffset: 0
+                        verticalOffset: 6 * zoom
+                        radius: 18
+                        samples: 37
+                        color: Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.22)
+                        source: rect
+                    }
+
+                    Rectangle {
+                        width: id1.width - 2 * zoom
+                        height: 123 * zoom
+                        radius: 14 * zoom
+                        border.width: 1
+                        border.color: settings.theme_tile_shadow_enabled
+                                      ? Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.45)
+                                      : Qt.rgba(1, 1, 1, 0.08)
+                        gradient: Gradient {
+                            GradientStop { position: 0.0; color: Qt.lighter(id1.tileColor, 1.18) }
+                            GradientStop { position: 1.0; color: id1.tileColor }
+                        }
+                        id: rect
+
+                        // Ignore for VoiceOver - decorative background only
+                        Accessible.ignored: true
+                    }
+
+                    Timer {
+                        id: toggleIconTimer
+                        interval: 500; running: true; repeat: true
+                        onTriggered: { if(identificator === "inclination" && rootItem.autoInclinationEnabled()) myIcon.visible = !myIcon.visible; else myIcon.visible = showIcon; }
+                    }
+
+                    Image {
+                        id: myIcon
+                        anchors {
+                            left: parent.left
+                            top: parent.top
+                            leftMargin: edgePadding
+                            topMargin: 10 * zoom
+                        }
+                        width: 20 * zoom
+                        height: 20 * zoom
+                        source: icon
+                        visible: showIcon
+                        smooth: true
+                        mipmap: true
+                        opacity: 0.9
+
+                        // Ignore for VoiceOver - decorative only
+                        Accessible.ignored: true
+                    }
+                    Text {
+                        id: myText
+                        anchors {
+                            verticalCenter: myIcon.verticalCenter
+                            left: showIcon ? myIcon.right : parent.left
+                            right: parent.right
+                            leftMargin: showIcon ? 7 * zoom : edgePadding
+                            rightMargin: edgePadding
+                        }
+                        font.bold: true
+                        font.pointSize: Math.max(9, labelFontSize - 2) * zoom
+                        font.capitalization: Font.AllUppercase
+                        font.letterSpacing: 1.2 * zoom
+                        fontSizeMode: Text.HorizontalFit
+                        minimumPointSize: 7
+                        elide: Text.ElideRight
+                        maximumLineCount: 1
+                        color: mutedTextColor
+                        text: name
+                        horizontalAlignment: Text.AlignLeft
+                        verticalAlignment: Text.AlignVCenter
+                        visible: !largeButton
+
+                        // Ignore for VoiceOver - parent Item handles accessibility
+                        Accessible.ignored: true
+                    }
+                    Text {
+                        objectName: "value"
+                        id: myValue
+                        color: valueFontColor
+                        anchors {
+                            top: parent.top
+                            topMargin: 32 * zoom
+                            horizontalCenter: parent.horizontalCenter
+                        }
+                        text: value
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        width: Math.max(50, parent.width - (writable ? 2 * (stepperSize + 10 * zoom) : 2 * edgePadding))
+                        height: 58 * zoom
+                        font.pointSize: valueFontSize * zoom
+                        font.letterSpacing: -0.5 * zoom
+                        fontSizeMode: Text.Fit
+                        minimumPointSize: 10
+                        font.bold: true
+                        visible: !largeButton
+
+                        // Ignore for VoiceOver - parent Item handles accessibility
+                        Accessible.ignored: true
+                    }
+                    Text {
+                        objectName: "secondLine"
+                        id: secondLineText
+                        color: mutedTextColor
+                        anchors {
+                            top: myValue.bottom
+                            horizontalCenter: parent.horizontalCenter
+                        }
+                        text: secondLine
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        width: Math.max(50, parent.width - 2 * edgePadding)
+                        height: 24 * zoom
+                        font.pointSize: settings.theme_tile_secondline_textsize * zoom
+                        fontSizeMode: Text.Fit
+                        minimumPointSize: 7
+                        font.bold: false
+                        visible: !largeButton
+
+                        // Ignore for VoiceOver - parent Item handles accessibility
+                        Accessible.ignored: true
+                    }
+                    RoundButton {
+                        objectName: minusName
+                        autoRepeat: true
+                        text: "−"
+                        onClicked: minus_clicked(objectName)
+                        visible: writable && !largeButton
+                        anchors.verticalCenter: myValue.verticalCenter
+                        anchors.left: parent.left
+                        anchors.leftMargin: 8 * zoom
+                        width: stepperSize
+                        height: stepperSize
+                        flat: true
+                        font.pointSize: 16 * zoom
+                        font.bold: true
+                        Material.foreground: Qt.lighter(accentColor, 1.35)
+                        background: Rectangle {
+                            radius: width / 2
+                            color: parent.down ? Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.35) : Qt.rgba(1, 1, 1, 0.08)
+                            border.width: 1
+                            border.color: Qt.rgba(1, 1, 1, 0.10)
+                        }
+
+                        // VoiceOver accessibility
+                        Accessible.role: Accessible.Button
+                        Accessible.name: qsTr("Decrease ") + name
+                        Accessible.description: qsTr("Decrease the value of ") + name
+                        Accessible.focusable: true
+                        Accessible.onPressAction: { minus_clicked(objectName) }
+                    }
+                    RoundButton {
+                        autoRepeat: true
+                        objectName: plusName
+                        text: "+"
+                        onClicked: plus_clicked(objectName)
+                        visible: writable && !largeButton
+                        anchors.verticalCenter: myValue.verticalCenter
+                        anchors.right: parent.right
+                        anchors.rightMargin: 8 * zoom
+                        width: stepperSize
+                        height: stepperSize
+                        flat: true
+                        font.pointSize: 16 * zoom
+                        font.bold: true
+                        Material.foreground: Qt.lighter(accentColor, 1.35)
+                        background: Rectangle {
+                            radius: width / 2
+                            color: parent.down ? Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.35) : Qt.rgba(1, 1, 1, 0.08)
+                            border.width: 1
+                            border.color: Qt.rgba(1, 1, 1, 0.10)
+                        }
+
+                        // VoiceOver accessibility
+                        Accessible.role: Accessible.Button
+                        Accessible.name: qsTr("Increase ") + name
+                        Accessible.description: qsTr("Increase the value of ") + name
+                        Accessible.focusable: true
+                        Accessible.onPressAction: { plus_clicked(objectName) }
+                    }
+                    RoundButton {
+                        autoRepeat: true
+                        objectName: identificator
+                        text: largeButtonLabel
+                        onClicked: largeButton_clicked(objectName)
+                        visible: largeButton
+                        anchors.fill: rect
+                        Material.foreground: "white"
+                        background: Rectangle {
+                            color: parent.down ? Qt.darker(largeButtonColor, 1.2) : largeButtonColor
+                            radius: 14 * zoom
+                            border.width: 1
+                            border.color: Qt.rgba(1, 1, 1, 0.12)
+                        }
+                        font.pointSize: 20 * zoom
+                        font.bold: true
+
+                        // VoiceOver accessibility
+                        Accessible.role: Accessible.Button
+                        Accessible.name: largeButtonLabel
+                        Accessible.description: name + ": " + largeButtonLabel
+                        Accessible.focusable: true
+                        Accessible.onPressAction: { largeButton_clicked(objectName) }
+                    }
+                }
+            }
+
+            Item {
+                id: ghostTile
+                visible: loc.currentId !== -1 && window.lockTiles
+                x: loc.mouseX - width / 2
+                y: loc.mouseY - height / 2
+                width: 85 * settings.ui_zoom / 100
+                height: 63 * settings.ui_zoom / 100
+                z: 200
+
+                Rectangle {
+                    anchors.fill: parent
+                    radius: 3
+                    color: settings.theme_tile_background_color
+                    opacity: 0.9
+                    border.width: 2
+                    border.color: settings.theme_tile_shadow_color
+
+                    Text {
+                        anchors.centerIn: parent
+                        color: "white"
+                        text: loc.tileName
+                        font.pointSize: 10 * settings.ui_zoom / 100
+                        font.bold: true
+                        horizontalAlignment: Text.AlignHCenter
+                        width: parent.width - 8
+                        wrapMode: Text.WordWrap
+                    }
+                }
             }
 
             Timer {
-                id: toggleIconTimer
-                interval: 500; running: true; repeat: true
-                onTriggered: { if(identificator === "inclination" && rootItem.autoInclinationEnabled()) myIcon.visible = !myIcon.visible; else myIcon.visible = showIcon; }
+                id: autoScrollTimer
+                interval: 50
+                repeat: true
+                running: false
+                property real scrollSpeed: 15
+                onTriggered: {
+                    if (loc.currentId === -1) { running = false; return; }
+                    var edgeZone = 80
+                    if (loc.mouseY > gridView.height - edgeZone) {
+                        var factor = (loc.mouseY - (gridView.height - edgeZone)) / edgeZone
+                        gridView.contentY = Math.min(
+                            gridView.contentHeight - gridView.height,
+                            gridView.contentY + scrollSpeed * (1 + factor * 2)
+                        )
+                    } else if (loc.mouseY < edgeZone) {
+                        var factor2 = (edgeZone - loc.mouseY) / edgeZone
+                        gridView.contentY = Math.max(0, gridView.contentY - scrollSpeed * (1 + factor2 * 2))
+                    } else {
+                        running = false
+                    }
+                }
             }
 
-            Image {
-                id: myIcon
-                anchors {
-                    left: parent.left
-                    top: parent.top
-                    leftMargin: edgePadding
-                    topMargin: 10 * zoom
-                }
-                width: 20 * zoom
-                height: 20 * zoom
-                source: icon
-                visible: showIcon
-                smooth: true
-                mipmap: true
-                opacity: 0.9
+            MouseArea {
+                property int currentId: -1
+                property int newIndex
+                property int startIndex: -1
+                property string tileName: ""
+                property real lastScrollY: 0
+                property bool isSwiping: false
 
-                // Ignore for VoiceOver - decorative only
-                Accessible.ignored: true
-            }
-            Text {
-                id: myText
-                anchors {
-                    verticalCenter: myIcon.verticalCenter
-                    left: showIcon ? myIcon.right : parent.left
-                    right: parent.right
-                    leftMargin: showIcon ? 7 * zoom : edgePadding
-                    rightMargin: edgePadding
-                }
-                font.bold: true
-                font.pointSize: Math.max(9, labelFontSize - 2) * zoom
-                font.capitalization: Font.AllUppercase
-                font.letterSpacing: 1.2 * zoom
-                fontSizeMode: Text.HorizontalFit
-                minimumPointSize: 7
-                elide: Text.ElideRight
-                maximumLineCount: 1
-                color: mutedTextColor
-                text: name
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
-                visible: !largeButton
-
-                // Ignore for VoiceOver - parent Item handles accessibility
-                Accessible.ignored: true
-            }
-            Text {
-                objectName: "value"
-                id: myValue
-                color: valueFontColor
-                anchors {
-                    top: parent.top
-                    topMargin: 32 * zoom
-                    horizontalCenter: parent.horizontalCenter
-                }
-                text: value
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                width: Math.max(50, parent.width - (writable ? 2 * (stepperSize + 10 * zoom) : 2 * edgePadding))
-                height: 58 * zoom
-                font.pointSize: valueFontSize * zoom
-                font.letterSpacing: -0.5 * zoom
-                fontSizeMode: Text.Fit
-                minimumPointSize: 10
-                font.bold: true
-                visible: !largeButton
-
-                // Ignore for VoiceOver - parent Item handles accessibility
-                Accessible.ignored: true
-            }
-            Text {
-                objectName: "secondLine"
-                id: secondLineText
-                color: mutedTextColor
-                anchors {
-                    top: myValue.bottom
-                    horizontalCenter: parent.horizontalCenter
-                }
-                text: secondLine
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                width: Math.max(50, parent.width - 2 * edgePadding)
-                height: 24 * zoom
-                font.pointSize: settings.theme_tile_secondline_textsize * zoom
-                fontSizeMode: Text.Fit
-                minimumPointSize: 7
-                font.bold: false
-                visible: !largeButton
-
-                // Ignore for VoiceOver - parent Item handles accessibility
-                Accessible.ignored: true
-            }
-            RoundButton {
-                objectName: minusName
-                autoRepeat: true
-                text: "−"
-                onClicked: minus_clicked(objectName)
-                visible: writable && !largeButton
-                anchors.verticalCenter: myValue.verticalCenter
-                anchors.left: parent.left
-                anchors.leftMargin: 8 * zoom
-                width: stepperSize
-                height: stepperSize
-                flat: true
-                font.pointSize: 16 * zoom
-                font.bold: true
-                Material.foreground: Qt.lighter(accentColor, 1.35)
-                background: Rectangle {
-                    radius: width / 2
-                    color: parent.down ? Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.35) : Qt.rgba(1, 1, 1, 0.08)
-                    border.width: 1
-                    border.color: Qt.rgba(1, 1, 1, 0.10)
+                function indexAtMouse(mx, my) {
+                    var cols = gridView.tileColumns
+                    var adjustedY = my + gridView.contentY
+                    var col = Math.floor((mx - gridView.x) / gridView.cellWidth)
+                    if (col < 0 || col >= cols) return -1
+                    var row = Math.floor(adjustedY / gridView.cellHeight)
+                    var idx = row * cols + col
+                    if (idx < 0 || idx >= appModel.count) return -1
+                    return idx
                 }
 
-                // VoiceOver accessibility
-                Accessible.role: Accessible.Button
-                Accessible.name: qsTr("Decrease ") + name
-                Accessible.description: qsTr("Decrease the value of ") + name
-                Accessible.focusable: true
-                Accessible.onPressAction: { minus_clicked(objectName) }
-            }
-            RoundButton {
-                autoRepeat: true
-                objectName: plusName
-                text: "+"
-                onClicked: plus_clicked(objectName)
-                visible: writable && !largeButton
-                anchors.verticalCenter: myValue.verticalCenter
-                anchors.right: parent.right
-                anchors.rightMargin: 8 * zoom
-                width: stepperSize
-                height: stepperSize
-                flat: true
-                font.pointSize: 16 * zoom
-                font.bold: true
-                Material.foreground: Qt.lighter(accentColor, 1.35)
-                background: Rectangle {
-                    radius: width / 2
-                    color: parent.down ? Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.35) : Qt.rgba(1, 1, 1, 0.08)
-                    border.width: 1
-                    border.color: Qt.rgba(1, 1, 1, 0.10)
+                id: loc
+                enabled: window.lockTiles
+                anchors.fill: parent
+
+                onPressed: {
+                    lastScrollY = mouseY
+                    isSwiping = false
                 }
 
-                // VoiceOver accessibility
-                Accessible.role: Accessible.Button
-                Accessible.name: qsTr("Increase ") + name
-                Accessible.description: qsTr("Increase the value of ") + name
-                Accessible.focusable: true
-                Accessible.onPressAction: { plus_clicked(objectName) }
-            }
-            RoundButton {
-                autoRepeat: true
-                objectName: identificator
-                text: largeButtonLabel
-                onClicked: largeButton_clicked(objectName)
-                visible: largeButton
-                anchors.fill: rect
-                Material.foreground: "white"
-                background: Rectangle {
-                    color: parent.down ? Qt.darker(largeButtonColor, 1.2) : largeButtonColor
-                    radius: 14 * zoom
-                    border.width: 1
-                    border.color: Qt.rgba(1, 1, 1, 0.12)
+                onPressAndHold: {
+                    if (isSwiping) return
+                    var idx = indexAtMouse(mouseX, mouseY)
+                    if (idx !== -1) {
+                        startIndex = idx
+                        newIndex = idx
+                        currentId = appModel[idx].gridId
+                        tileName = appModel[idx].name
+                    } else {
+                        currentId = -1
+                        tileName = ""
+                    }
                 }
-                font.pointSize: 20 * zoom
-                font.bold: true
 
-                // VoiceOver accessibility
-                Accessible.role: Accessible.Button
-                Accessible.name: largeButtonLabel
-                Accessible.description: name + ": " + largeButtonLabel
-                Accessible.focusable: true
-                Accessible.onPressAction: { largeButton_clicked(objectName) }
+                onReleased: {
+                    autoScrollTimer.running = false
+                    if (currentId !== -1) {
+                        var idx = indexAtMouse(mouseX, mouseY)
+                        if (idx !== -1 && idx !== startIndex)
+                            rootItem.moveTile(tileName, idx, startIndex)
+                    }
+                    currentId = -1
+                    startIndex = -1
+                    tileName = ""
+                    isSwiping = false
+                }
+
+                onPositionChanged: {
+                    if (currentId === -1) {
+                        // No drag in progress: scroll the grid like a normal flick
+                        var dy = mouseY - lastScrollY
+                        if (Math.abs(dy) > 5) isSwiping = true
+                        gridView.contentY = Math.max(0,
+                            Math.min(gridView.contentHeight - gridView.height,
+                                     gridView.contentY - dy))
+                        lastScrollY = mouseY
+                        return
+                    }
+                    var edgeZone = 80
+                    if (mouseY > gridView.height - edgeZone || mouseY < edgeZone)
+                        autoScrollTimer.running = true
+                    else
+                        autoScrollTimer.running = false
+
+                    var idx = indexAtMouse(mouseX, mouseY)
+                    if (idx !== -1 && idx !== newIndex) newIndex = idx
+                }
             }
         }
+    }
+
+    PageIndicator {
+        anchors.bottom: swipeView.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        count: swipeView.count
+        currentIndex: swipeView.currentIndex
+        interactive: true
+        onCurrentIndexChanged: swipeView.currentIndex = currentIndex
     }
 
     footer: Item {
@@ -716,134 +906,4 @@ HomeForm {
         }
     }
 
-    Item {
-        id: ghostTile
-        visible: loc.currentId !== -1 && window.lockTiles
-        x: loc.mouseX - width / 2
-        y: loc.mouseY - height / 2
-        width: 85 * settings.ui_zoom / 100
-        height: 63 * settings.ui_zoom / 100
-        z: 200
-
-        Rectangle {
-            anchors.fill: parent
-            radius: 3
-            color: settings.theme_tile_background_color
-            opacity: 0.9
-            border.width: 2
-            border.color: settings.theme_tile_shadow_color
-
-            Text {
-                anchors.centerIn: parent
-                color: "white"
-                text: loc.tileName
-                font.pointSize: 10 * settings.ui_zoom / 100
-                font.bold: true
-                horizontalAlignment: Text.AlignHCenter
-                width: parent.width - 8
-                wrapMode: Text.WordWrap
-            }
-        }
-    }
-
-    Timer {
-        id: autoScrollTimer
-        interval: 50
-        repeat: true
-        running: false
-        property real scrollSpeed: 15
-        onTriggered: {
-            if (loc.currentId === -1) { running = false; return; }
-            var edgeZone = 80
-            if (loc.mouseY > gridView.height - edgeZone) {
-                var factor = (loc.mouseY - (gridView.height - edgeZone)) / edgeZone
-                gridView.contentY = Math.min(
-                    gridView.contentHeight - gridView.height,
-                    gridView.contentY + scrollSpeed * (1 + factor * 2)
-                )
-            } else if (loc.mouseY < edgeZone) {
-                var factor2 = (edgeZone - loc.mouseY) / edgeZone
-                gridView.contentY = Math.max(0, gridView.contentY - scrollSpeed * (1 + factor2 * 2))
-            } else {
-                running = false
-            }
-        }
-    }
-
-    MouseArea {
-        property int currentId: -1
-        property int newIndex
-        property int startIndex: -1
-        property string tileName: ""
-        property real lastScrollY: 0
-        property bool isSwiping: false
-
-        function indexAtMouse(mx, my) {
-            var cols = gridView.tileColumns
-            var adjustedY = my + gridView.contentY
-            var col = Math.floor((mx - gridView.x) / gridView.cellWidth)
-            if (col < 0 || col >= cols) return -1
-            var row = Math.floor(adjustedY / gridView.cellHeight)
-            var idx = row * cols + col
-            if (idx < 0 || idx >= appModel.count) return -1
-            return idx
-        }
-
-        id: loc
-        enabled: window.lockTiles
-        anchors.fill: parent
-
-        onPressed: {
-            lastScrollY = mouseY
-            isSwiping = false
-        }
-
-        onPressAndHold: {
-            if (isSwiping) return
-            var idx = indexAtMouse(mouseX, mouseY)
-            if (idx !== -1) {
-                startIndex = idx
-                newIndex = idx
-                currentId = appModel[idx].gridId
-                tileName = appModel[idx].name
-            } else {
-                currentId = -1
-                tileName = ""
-            }
-        }
-
-        onReleased: {
-            autoScrollTimer.running = false
-            if (currentId !== -1) {
-                var idx = indexAtMouse(mouseX, mouseY)
-                if (idx !== -1 && idx !== startIndex)
-                    rootItem.moveTile(tileName, idx, startIndex)
-            }
-            currentId = -1
-            startIndex = -1
-            tileName = ""
-            isSwiping = false
-        }
-
-        onPositionChanged: {
-            if (currentId === -1) {
-                // No drag in progress: scroll the grid like a normal flick
-                var dy = mouseY - lastScrollY
-                if (Math.abs(dy) > 5) isSwiping = true
-                gridView.contentY = Math.max(0,
-                    Math.min(gridView.contentHeight - gridView.height,
-                             gridView.contentY - dy))
-                lastScrollY = mouseY
-                return
-            }
-            var edgeZone = 80
-            if (mouseY > gridView.height - edgeZone || mouseY < edgeZone)
-                autoScrollTimer.running = true
-            else
-                autoScrollTimer.running = false
-
-            var idx = indexAtMouse(mouseX, mouseY)
-            if (idx !== -1 && idx !== newIndex) newIndex = idx
-        }
-    }
 }
