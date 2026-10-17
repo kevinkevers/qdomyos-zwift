@@ -243,6 +243,7 @@ class homeform : public QObject {
     // Rows of the loaded training program as {seconds, speed, inclination}; empty without a program
     Q_INVOKABLE QVariantList trainProgramProfile();
     Q_INVOKABLE int trainProgramElapsedSeconds();
+    Q_INVOKABLE void setTreadmillSpeed(double kmh);
     Q_INVOKABLE void save_screenshot() {
 
         QString path = getWritableAppDir();

@@ -1771,6 +1771,12 @@ QVariantList homeform::trainProgramProfile() {
     return profile;
 }
 
+void homeform::setTreadmillSpeed(double kmh) {
+    if (!bluetoothManager || !bluetoothManager->device() || bluetoothManager->device()->deviceType() != TREADMILL)
+        return;
+    ((treadmill *)bluetoothManager->device())->changeSpeed(kmh);
+}
+
 int homeform::trainProgramElapsedSeconds() {
     if (!trainProgram)
         return 0;
