@@ -218,7 +218,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.kevinkevers.stride"
+        applicationId = "org.cagnulen.qdomyoszwift"
         resConfig "en"
         minSdk 21
         targetSdk 36

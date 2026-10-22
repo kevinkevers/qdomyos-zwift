@@ -2030,7 +2030,7 @@ import AndroidStatusBar 1.0
             property int  tile_avg_pace_order: 76
 
             // Garmin connect
-            property string garmin_email: ""
+            property string garmin_email: "kevinkevers@gmail.com"
             property string garmin_password: ""
             property bool garmin_upload_enabled: true
             property string garmin_access_token: ""
