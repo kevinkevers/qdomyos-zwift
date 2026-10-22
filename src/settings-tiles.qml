@@ -146,26 +146,26 @@ ScrollView {
         property int tile_preset_resistance_5_order: 37
         property real tile_preset_resistance_5_value: 30.0
         property string tile_preset_resistance_5_label: "Res. 30"
-        property bool tile_preset_speed_1_enabled: false
+        property bool tile_preset_speed_1_enabled: true
         property int tile_preset_speed_1_order: 38
-        property real tile_preset_speed_1_value: 5.0
-        property string tile_preset_speed_1_label: "5 km/h"
-        property bool tile_preset_speed_2_enabled: false
+        property real tile_preset_speed_1_value: 7.0
+        property string tile_preset_speed_1_label: "7 km/h"
+        property bool tile_preset_speed_2_enabled: true
         property int tile_preset_speed_2_order: 39
-        property real tile_preset_speed_2_value: 7.0
-        property string tile_preset_speed_2_label: "7 km/h"
-        property bool tile_preset_speed_3_enabled: false
+        property real tile_preset_speed_2_value: 8.0
+        property string tile_preset_speed_2_label: "8 km/h"
+        property bool tile_preset_speed_3_enabled: true
         property int tile_preset_speed_3_order: 40
-        property real tile_preset_speed_3_value: 10.0
-        property string tile_preset_speed_3_label: "10 km/h"
-        property bool tile_preset_speed_4_enabled: false
+        property real tile_preset_speed_3_value: 9.0
+        property string tile_preset_speed_3_label: "9 km/h"
+        property bool tile_preset_speed_4_enabled: true
         property int tile_preset_speed_4_order: 41
-        property real tile_preset_speed_4_value: 11.0
-        property string tile_preset_speed_4_label: "11 km/h"
-        property bool tile_preset_speed_5_enabled: false
+        property real tile_preset_speed_4_value: 10.0
+        property string tile_preset_speed_4_label: "10 km/h"
+        property bool tile_preset_speed_5_enabled: true
         property int tile_preset_speed_5_order: 42
-        property real tile_preset_speed_5_value: 12.0
-        property string tile_preset_speed_5_label: "12 km/h"
+        property real tile_preset_speed_5_value: 11.0
+        property string tile_preset_speed_5_label: "11 km/h"
         property bool tile_preset_inclination_1_enabled: false
         property int tile_preset_inclination_1_order: 43
         property real tile_preset_inclination_1_value: 0.0
@@ -372,6 +372,21 @@ ScrollView {
         property string shortcut_start_stop: ""            
         property bool tile_watt_color_enabled: true
         property bool tile_pace_color_enabled: true
+        property bool tile_preset_speed_6_enabled: true
+        property int tile_preset_speed_6_order: 42
+        property real tile_preset_speed_6_value: 12.0
+        property string tile_preset_speed_6_label: "12 km/h"
+        property string tile_preset_speed_6_color: "grey"
+        property bool tile_preset_speed_7_enabled: true
+        property int tile_preset_speed_7_order: 42
+        property real tile_preset_speed_7_value: 13.0
+        property string tile_preset_speed_7_label: "13 km/h"
+        property string tile_preset_speed_7_color: "grey"
+        property bool tile_preset_speed_8_enabled: true
+        property int tile_preset_speed_8_order: 42
+        property real tile_preset_speed_8_value: 14.0
+        property string tile_preset_speed_8_label: "14 km/h"
+        property string tile_preset_speed_8_color: "grey"
     }
 
 
@@ -388,8 +403,8 @@ ScrollView {
         NewPageElement {
             id: labelShortcutsSettings
             title: qsTr("Keyboard Shortcuts ⌨️")
-            indicatRectColor: Material.color(Material.Grey)
-            textColor: Material.color(Material.Grey)
+            indicatRectColor: Material.accent
+            textColor: "#F2F5F8"
             color: Material.backgroundColor
             accordionContent: "settings-shortcuts.qml"
         }
@@ -437,7 +452,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -504,7 +519,7 @@ ScrollView {
                     verticalAlignment: Text.AlignVCenter
                     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                     Layout.fillWidth: true
-                    color: Material.color(Material.Lime)
+                    color: "#8A94A6"
                 }
 
                 RowLayout {
@@ -546,7 +561,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -623,7 +638,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -669,7 +684,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -715,7 +730,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -844,7 +859,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         Label {
@@ -857,7 +872,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -903,7 +918,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -966,7 +981,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -1012,7 +1027,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
 
@@ -1059,7 +1074,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
 
@@ -1139,7 +1154,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -1173,7 +1188,7 @@ ScrollView {
                     verticalAlignment: Text.AlignVCenter
                     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                     Layout.fillWidth: true
-                    color: Material.color(Material.Lime)
+                    color: "#8A94A6"
                 }
 
                 RowLayout {
@@ -1248,7 +1263,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -1294,7 +1309,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -1340,7 +1355,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -1386,7 +1401,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -1432,7 +1447,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -1478,7 +1493,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         /*
@@ -1606,7 +1621,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -1652,7 +1667,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
 
@@ -1699,7 +1714,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -1745,7 +1760,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -1791,7 +1806,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
 
@@ -1838,7 +1853,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -1982,7 +1997,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2028,7 +2043,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2086,7 +2101,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2133,7 +2148,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2180,7 +2195,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2226,7 +2241,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2305,7 +2320,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2351,7 +2366,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2397,7 +2412,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2443,7 +2458,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2489,7 +2504,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2535,7 +2550,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2581,7 +2596,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2627,7 +2642,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -2673,7 +2688,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -3951,6 +3966,357 @@ ScrollView {
 								text: qsTr("OK")
 								Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
 								onClicked: {settings.tile_preset_speed_5_color = presetSpeed5ColorTextField.displayText; toast.show(qsTr("Setting saved!")); }
+						  }
+					 }
+            }
+        }
+        AccordionCheckElement {
+            id: presetSpeed6EnabledAccordion
+            title: qsTr("Preset Speed 6")
+            linkedBoolSetting: "tile_preset_speed_6_enabled"
+            settings: settings
+            accordionContent: ColumnLayout {
+                spacing: 10
+                RowLayout {
+                    Label {
+                        id: labelPresetSpeed6Order
+                        text: qsTr("order index:")
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignRight
+                    }
+                    UiComboBox {
+                        id: presetSpeed6TextField
+                        Accessible.name: presetSpeed6EnabledAccordion.title + ", " + labelPresetSpeed6Order.text
+                        model: rootItem.tile_order
+                        displayText: settings.tile_preset_speed_6_order
+                        Layout.fillHeight: false
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onActivated: {
+                            displayText = presetSpeed6TextField.currentValue
+                        }
+                    }
+                    Button {
+                        id: okPresetSpeed6OrderButton
+                        text: qsTr("OK")
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onClicked: {settings.tile_preset_speed_6_order = presetSpeed6TextField.displayText; toast.show(qsTr("Setting saved!")); }
+                    }
+                }
+                RowLayout {
+                    Label {
+                        id: labelPresetSpeed6Value
+                        text: qsTr("value:") + " (" + (settings.miles_unit ? qsTr("mph") : qsTr("km/h")) + ")"
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignRight
+                    }
+                    TextField {
+                        id: presetSpeed6ValueTextField
+                        Accessible.name: presetSpeed6EnabledAccordion.title + ", " + labelPresetSpeed6Value.text
+                        text: settingsTilesPane.formatPresetSpeedValue(settings.tile_preset_speed_6_value)
+                        Layout.fillHeight: false
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onActiveFocusChanged: if(this.focus) this.cursorPosition = this.text.length
+                    }
+                    Button {
+                        id: okPresetSpeed6ValueButton
+                        text: qsTr("OK")
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onClicked: {
+                            settings.tile_preset_speed_6_value = settingsTilesPane.parsePresetSpeedValue(presetSpeed6ValueTextField.displayText);
+                            presetSpeed6ValueTextField.text = settingsTilesPane.formatPresetSpeedValue(settings.tile_preset_speed_6_value);
+                            toast.show(qsTr("Setting saved!"));
+                        }
+                    }
+                }
+                RowLayout {
+                    Label {
+                        id: labelPresetSpeed6Label
+                        text: qsTr("label:")
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignRight
+                    }
+                    TextField {
+                        id: presetSpeed6LabelTextField
+                        Accessible.name: presetSpeed6EnabledAccordion.title + ", " + labelPresetSpeed6Label.text
+                        text: settings.tile_preset_speed_6_label
+                        Layout.fillHeight: false
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onActiveFocusChanged: if(this.focus) this.cursorPosition = this.text.length
+                    }
+                    Button {
+                        id: okPresetSpeed6LabelButton
+                        text: qsTr("OK")
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onClicked: {settings.tile_preset_speed_6_label = presetSpeed6LabelTextField.displayText; toast.show(qsTr("Setting saved!")); }
+                    }
+                }
+					 RowLayout {
+					     Label {
+						      id: labelPresetSpeed6Color
+								text: qsTr("color:")
+								Layout.fillWidth: true
+								horizontalAlignment: Text.AlignRight
+								}
+						  ColorDialog {
+						      id: colorPresetSpeed6
+								title: qsTr("Please choose a color")
+								onAccepted: {
+								    presetSpeed6ColorTextField.text = colorPresetSpeed6.color
+									}
+								onRejected: {
+
+                        }
+						  }
+						  TextField {
+						      id: presetSpeed6ColorTextField
+						      Accessible.name: presetSpeed6EnabledAccordion.title + ", " + labelPresetSpeed6Color.text
+								text: settings.tile_preset_speed_6_color
+								Layout.fillHeight: false
+								Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+								onActiveFocusChanged: if(this.focus) this.cursorPosition = this.text.length
+								onPressed: {
+                                    if(OS_VERSION !== "Android") colorPresetSpeed6.visible = true
+								}
+						  }
+						  Button {
+						      id: okPresetSpeed6ColorButton
+								text: qsTr("OK")
+								Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+								onClicked: {settings.tile_preset_speed_6_color = presetSpeed6ColorTextField.displayText; toast.show(qsTr("Setting saved!")); }
+						  }
+					 }
+            }
+        }
+        AccordionCheckElement {
+            id: presetSpeed7EnabledAccordion
+            title: qsTr("Preset Speed 7")
+            linkedBoolSetting: "tile_preset_speed_7_enabled"
+            settings: settings
+            accordionContent: ColumnLayout {
+                spacing: 10
+                RowLayout {
+                    Label {
+                        id: labelPresetSpeed7Order
+                        text: qsTr("order index:")
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignRight
+                    }
+                    UiComboBox {
+                        id: presetSpeed7TextField
+                        Accessible.name: presetSpeed7EnabledAccordion.title + ", " + labelPresetSpeed7Order.text
+                        model: rootItem.tile_order
+                        displayText: settings.tile_preset_speed_7_order
+                        Layout.fillHeight: false
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onActivated: {
+                            displayText = presetSpeed7TextField.currentValue
+                        }
+                    }
+                    Button {
+                        id: okPresetSpeed7OrderButton
+                        text: qsTr("OK")
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onClicked: {settings.tile_preset_speed_7_order = presetSpeed7TextField.displayText; toast.show(qsTr("Setting saved!")); }
+                    }
+                }
+                RowLayout {
+                    Label {
+                        id: labelPresetSpeed7Value
+                        text: qsTr("value:") + " (" + (settings.miles_unit ? qsTr("mph") : qsTr("km/h")) + ")"
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignRight
+                    }
+                    TextField {
+                        id: presetSpeed7ValueTextField
+                        Accessible.name: presetSpeed7EnabledAccordion.title + ", " + labelPresetSpeed7Value.text
+                        text: settingsTilesPane.formatPresetSpeedValue(settings.tile_preset_speed_7_value)
+                        Layout.fillHeight: false
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onActiveFocusChanged: if(this.focus) this.cursorPosition = this.text.length
+                    }
+                    Button {
+                        id: okPresetSpeed7ValueButton
+                        text: qsTr("OK")
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onClicked: {
+                            settings.tile_preset_speed_7_value = settingsTilesPane.parsePresetSpeedValue(presetSpeed7ValueTextField.displayText);
+                            presetSpeed7ValueTextField.text = settingsTilesPane.formatPresetSpeedValue(settings.tile_preset_speed_7_value);
+                            toast.show(qsTr("Setting saved!"));
+                        }
+                    }
+                }
+                RowLayout {
+                    Label {
+                        id: labelPresetSpeed7Label
+                        text: qsTr("label:")
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignRight
+                    }
+                    TextField {
+                        id: presetSpeed7LabelTextField
+                        Accessible.name: presetSpeed7EnabledAccordion.title + ", " + labelPresetSpeed7Label.text
+                        text: settings.tile_preset_speed_7_label
+                        Layout.fillHeight: false
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onActiveFocusChanged: if(this.focus) this.cursorPosition = this.text.length
+                    }
+                    Button {
+                        id: okPresetSpeed7LabelButton
+                        text: qsTr("OK")
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onClicked: {settings.tile_preset_speed_7_label = presetSpeed7LabelTextField.displayText; toast.show(qsTr("Setting saved!")); }
+                    }
+                }
+					 RowLayout {
+					     Label {
+						      id: labelPresetSpeed7Color
+								text: qsTr("color:")
+								Layout.fillWidth: true
+								horizontalAlignment: Text.AlignRight
+								}
+						  ColorDialog {
+						      id: colorPresetSpeed7
+								title: qsTr("Please choose a color")
+								onAccepted: {
+								    presetSpeed7ColorTextField.text = colorPresetSpeed7.color
+									}
+								onRejected: {
+
+                        }
+						  }
+						  TextField {
+						      id: presetSpeed7ColorTextField
+						      Accessible.name: presetSpeed7EnabledAccordion.title + ", " + labelPresetSpeed7Color.text
+								text: settings.tile_preset_speed_7_color
+								Layout.fillHeight: false
+								Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+								onActiveFocusChanged: if(this.focus) this.cursorPosition = this.text.length
+								onPressed: {
+                                    if(OS_VERSION !== "Android") colorPresetSpeed7.visible = true
+								}
+						  }
+						  Button {
+						      id: okPresetSpeed7ColorButton
+								text: qsTr("OK")
+								Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+								onClicked: {settings.tile_preset_speed_7_color = presetSpeed7ColorTextField.displayText; toast.show(qsTr("Setting saved!")); }
+						  }
+					 }
+            }
+        }
+        AccordionCheckElement {
+            id: presetSpeed8EnabledAccordion
+            title: qsTr("Preset Speed 8")
+            linkedBoolSetting: "tile_preset_speed_8_enabled"
+            settings: settings
+            accordionContent: ColumnLayout {
+                spacing: 10
+                RowLayout {
+                    Label {
+                        id: labelPresetSpeed8Order
+                        text: qsTr("order index:")
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignRight
+                    }
+                    UiComboBox {
+                        id: presetSpeed8TextField
+                        Accessible.name: presetSpeed8EnabledAccordion.title + ", " + labelPresetSpeed8Order.text
+                        model: rootItem.tile_order
+                        displayText: settings.tile_preset_speed_8_order
+                        Layout.fillHeight: false
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onActivated: {
+                            displayText = presetSpeed8TextField.currentValue
+                        }
+                    }
+                    Button {
+                        id: okPresetSpeed8OrderButton
+                        text: qsTr("OK")
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onClicked: {settings.tile_preset_speed_8_order = presetSpeed8TextField.displayText; toast.show(qsTr("Setting saved!")); }
+                    }
+                }
+                RowLayout {
+                    Label {
+                        id: labelPresetSpeed8Value
+                        text: qsTr("value:") + " (" + (settings.miles_unit ? qsTr("mph") : qsTr("km/h")) + ")"
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignRight
+                    }
+                    TextField {
+                        id: presetSpeed8ValueTextField
+                        Accessible.name: presetSpeed8EnabledAccordion.title + ", " + labelPresetSpeed8Value.text
+                        text: settingsTilesPane.formatPresetSpeedValue(settings.tile_preset_speed_8_value)
+                        Layout.fillHeight: false
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onActiveFocusChanged: if(this.focus) this.cursorPosition = this.text.length
+                    }
+                    Button {
+                        id: okPresetSpeed8ValueButton
+                        text: qsTr("OK")
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onClicked: {
+                            settings.tile_preset_speed_8_value = settingsTilesPane.parsePresetSpeedValue(presetSpeed8ValueTextField.displayText);
+                            presetSpeed8ValueTextField.text = settingsTilesPane.formatPresetSpeedValue(settings.tile_preset_speed_8_value);
+                            toast.show(qsTr("Setting saved!"));
+                        }
+                    }
+                }
+                RowLayout {
+                    Label {
+                        id: labelPresetSpeed8Label
+                        text: qsTr("label:")
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignRight
+                    }
+                    TextField {
+                        id: presetSpeed8LabelTextField
+                        Accessible.name: presetSpeed8EnabledAccordion.title + ", " + labelPresetSpeed8Label.text
+                        text: settings.tile_preset_speed_8_label
+                        Layout.fillHeight: false
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onActiveFocusChanged: if(this.focus) this.cursorPosition = this.text.length
+                    }
+                    Button {
+                        id: okPresetSpeed8LabelButton
+                        text: qsTr("OK")
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        onClicked: {settings.tile_preset_speed_8_label = presetSpeed8LabelTextField.displayText; toast.show(qsTr("Setting saved!")); }
+                    }
+                }
+					 RowLayout {
+					     Label {
+						      id: labelPresetSpeed8Color
+								text: qsTr("color:")
+								Layout.fillWidth: true
+								horizontalAlignment: Text.AlignRight
+								}
+						  ColorDialog {
+						      id: colorPresetSpeed8
+								title: qsTr("Please choose a color")
+								onAccepted: {
+								    presetSpeed8ColorTextField.text = colorPresetSpeed8.color
+									}
+								onRejected: {
+
+                        }
+						  }
+						  TextField {
+						      id: presetSpeed8ColorTextField
+						      Accessible.name: presetSpeed8EnabledAccordion.title + ", " + labelPresetSpeed8Color.text
+								text: settings.tile_preset_speed_8_color
+								Layout.fillHeight: false
+								Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+								onActiveFocusChanged: if(this.focus) this.cursorPosition = this.text.length
+								onPressed: {
+                                    if(OS_VERSION !== "Android") colorPresetSpeed8.visible = true
+								}
+						  }
+						  Button {
+						      id: okPresetSpeed8ColorButton
+								text: qsTr("OK")
+								Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+								onClicked: {settings.tile_preset_speed_8_color = presetSpeed8ColorTextField.displayText; toast.show(qsTr("Setting saved!")); }
 						  }
 					 }
             }
@@ -5265,7 +5631,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5311,7 +5677,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5357,7 +5723,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5403,7 +5769,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5449,7 +5815,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5495,7 +5861,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         RowLayout {
@@ -5570,7 +5936,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5616,7 +5982,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5662,7 +6028,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5708,7 +6074,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5754,7 +6120,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5798,7 +6164,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5842,7 +6208,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5886,7 +6252,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5930,7 +6296,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         AccordionCheckElement {
@@ -5976,7 +6342,7 @@ ScrollView {
             verticalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
     }
 }

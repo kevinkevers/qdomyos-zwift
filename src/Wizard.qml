@@ -46,7 +46,7 @@ Page {
         property string sex: "Male"
         property bool miles_unit: false
         property string heart_rate_belt_name: "Disabled"
-        property bool garmin_companion: false
+        property bool garmin_companion: true
         property string filter_device: "Disabled"
         property bool weight_kg_unit: false
     }

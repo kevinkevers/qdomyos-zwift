@@ -39,6 +39,19 @@ ColumnLayout {
     }
 
     Button {
+        height: 50
+        width: parent.width
+        visible: rootItem.isGarminUploadConfigured()
+        text: qsTr("Sync to Garmin Connect")
+        Material.background: Material.accent
+        Material.foreground: "#0E1116"
+        onClicked: rootItem.garmin_retry_last_upload()
+        anchors {
+            bottom: closeButton.top
+        }
+    }
+
+    Button {
         id: closeButton
         height: 50
         width: parent.width

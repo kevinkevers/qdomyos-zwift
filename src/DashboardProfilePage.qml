@@ -3,7 +3,7 @@ import QtQuick 2.12
 Item {
     id: page
     property var tiles: ({})
-    property color accent: "#7C5CFF"
+    property color accent: "#36F08F"
 
     property var steps: []
     property int elapsedSeconds: 0

@@ -2462,7 +2462,7 @@ void GarminConnect::downloadWorkoutDetails(const QString &workoutIdentifier, con
                                            const QString &workoutName, const QString &itemType,
                                            const QString &sportTypeKey,
                                            const QString &saveDir,
-                                           bool useScheduleEndpoint) {
+                                           bool useScheduleEndpoint, bool libraryWorkout) {
     QString detailsPath = "workout-service/workout";
     if (useScheduleEndpoint) {
         detailsPath = QString("workout-service/schedule/%1?includeAudioNotes=true")
@@ -2484,7 +2484,8 @@ void GarminConnect::downloadWorkoutDetails(const QString &workoutIdentifier, con
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     QNetworkReply *reply = manager->get(request2);
 
-    connect(reply, &QNetworkReply::finished, this, [this, reply, manager, date, workoutName, sportTypeKey, saveDir]() {
+    connect(reply, &QNetworkReply::finished, this,
+            [this, reply, manager, date, workoutName, sportTypeKey, saveDir, libraryWorkout]() {
         const int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         const QByteArray response = reply->readAll();
         reply->deleteLater();
@@ -2535,10 +2536,10 @@ void GarminConnect::downloadWorkoutDetails(const QString &workoutIdentifier, con
         if (resolvedSportTypeKey == QStringLiteral("cycling") &&
             garminWorkoutUsesPowerCurve(workoutPayload)) {
             downloadPowerCurveAndSaveWorkout(workoutPayload, date, resolvedWorkoutName,
-                                             resolvedSportTypeKey, saveDir);
+                                             resolvedSportTypeKey, saveDir, libraryWorkout);
         } else {
             saveWorkoutXml(workoutPayload, date, resolvedWorkoutName, resolvedSportTypeKey,
-                           saveDir, QMap<int, double>());
+                           saveDir, QMap<int, double>(), libraryWorkout);
         }
     });
 
@@ -2549,7 +2550,7 @@ void GarminConnect::downloadWorkoutDetails(const QString &workoutIdentifier, con
 void GarminConnect::downloadPowerCurveAndSaveWorkout(const QJsonObject &workoutPayload, const QString &date,
                                                      const QString &workoutName,
                                                      const QString &sportTypeKey,
-                                                     const QString &saveDir) {
+                                                     const QString &saveDir, bool libraryWorkout) {
     const QString urlString =
         QString("%1/fitnessstats-service/powerCurve?sport=cycling").arg(connectApiUrl());
     QNetworkRequest request{QUrl(urlString)};
@@ -2561,7 +2562,7 @@ void GarminConnect::downloadPowerCurveAndSaveWorkout(const QJsonObject &workoutP
     QNetworkReply *reply = manager->get(request);
 
     connect(reply, &QNetworkReply::finished, this,
-            [this, reply, manager, workoutPayload, date, workoutName, sportTypeKey, saveDir]() {
+            [this, reply, manager, workoutPayload, date, workoutName, sportTypeKey, saveDir, libraryWorkout]() {
         const int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         const QByteArray response = reply->readAll();
         reply->deleteLater();
@@ -2579,7 +2580,7 @@ void GarminConnect::downloadPowerCurveAndSaveWorkout(const QJsonObject &workoutP
                      << QString::fromUtf8(response).left(300);
         }
 
-        saveWorkoutXml(workoutPayload, date, workoutName, sportTypeKey, saveDir, powerCurve);
+        saveWorkoutXml(workoutPayload, date, workoutName, sportTypeKey, saveDir, powerCurve, libraryWorkout);
     });
 
     qDebug() << "GarminConnect: Fetching cycling power curve";
@@ -2588,27 +2589,89 @@ void GarminConnect::downloadPowerCurveAndSaveWorkout(const QJsonObject &workoutP
 void GarminConnect::saveWorkoutXml(const QJsonObject &workoutPayload, const QString &date,
                                    const QString &workoutName, const QString &sportTypeKey,
                                    const QString &saveDir,
-                                   const QMap<int, double> &powerCurve) {
+                                   const QMap<int, double> &powerCurve, bool libraryWorkout) {
     const QString xmlContent = garminConnectGenerateWorkoutXml(workoutPayload, powerCurve);
 
     const QString subdir = garminTrainingSubdirFromSportTypeKey(sportTypeKey);
-    const QString workoutRootDir = saveDir + "/" + subdir + "/Garmin";
+    QString workoutRootDir = saveDir + "/" + subdir + "/Garmin";
+    if (libraryWorkout) {
+        workoutRootDir += "/Library";
+    }
     QDir dir;
     if (!dir.exists(workoutRootDir)) {
         dir.mkpath(workoutRootDir);
     }
 
-    const QString filename = workoutRootDir + "/" + garminConnectWorkoutFileName(date, workoutName, sportTypeKey);
+    const QString baseName = libraryWorkout ? garminSafeFilenamePart(workoutName, QStringLiteral("Workout")) +
+                                                  QStringLiteral("_") +
+                                                  garminSportSuffixFromSportTypeKey(sportTypeKey) +
+                                                  QStringLiteral(".xml")
+                                            : garminConnectWorkoutFileName(date, workoutName, sportTypeKey);
+    const QString filename = workoutRootDir + "/" + baseName;
     QFile file(filename);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(xmlContent.toUtf8());
         file.close();
         qDebug() << "GarminConnect: Workout saved to" << filename;
-        emit workoutDownloaded(filename, workoutName);
+        if (!libraryWorkout) {
+            emit workoutDownloaded(filename, workoutName);
+        }
     } else {
         qDebug() << "GarminConnect: Failed to write" << filename;
         emit workoutDownloadFailed(QString("Cannot write file: %1").arg(filename));
     }
+}
+
+void GarminConnect::downloadWorkoutLibrary(const QString &saveDir) {
+    if (m_oauth2Token.access_token.isEmpty()) {
+        qDebug() << "GarminConnect: No access token for workout library download";
+        emit workoutDownloadFailed("Not authenticated");
+        return;
+    }
+
+    QNetworkRequest request(QUrl(QString("%1/workout-service/workouts?start=0&limit=200").arg(connectApiUrl())));
+    request.setRawHeader("Authorization", QString("Bearer %1").arg(m_oauth2Token.access_token).toUtf8());
+    request.setRawHeader("User-Agent", USER_AGENT);
+    request.setRawHeader("Accept", "application/json");
+
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    QNetworkReply *reply = manager->get(request);
+
+    connect(reply, &QNetworkReply::finished, this, [this, reply, manager, saveDir]() {
+        const int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+        const QByteArray response = reply->readAll();
+        reply->deleteLater();
+        manager->deleteLater();
+
+        qDebug() << "GarminConnect: Workout library status:" << statusCode;
+        if (statusCode != 200) {
+            emit workoutDownloadFailed(QString("Workout library failed (HTTP %1)").arg(statusCode));
+            return;
+        }
+
+        const QJsonDocument doc = QJsonDocument::fromJson(response);
+        if (!doc.isArray()) {
+            emit workoutDownloadFailed("Invalid workout library response");
+            return;
+        }
+
+        for (const QString &subdir : {QStringLiteral("ride"), QStringLiteral("run"), QStringLiteral("row"),
+                                      QStringLiteral("workout")}) {
+            QDir(saveDir + "/" + subdir + "/Garmin/Library").removeRecursively();
+        }
+
+        const QJsonArray workouts = doc.array();
+        for (const QJsonValue &value : workouts) {
+            const QJsonObject workout = value.toObject();
+            const QString workoutId = QString::number(workout["workoutId"].toVariant().toLongLong());
+            const QString sportTypeKey = workout["sportType"].toObject()["sportTypeKey"].toString();
+            downloadWorkoutDetails(workoutId, QString(), workout["workoutName"].toString(), QString(),
+                                   sportTypeKey, saveDir, false, true);
+        }
+        emit workoutLibraryDownloadStarted(workouts.size());
+    });
+
+    qDebug() << "GarminConnect: Fetching workout library";
 }
 
 // ========== End Daily Workout Download ==========

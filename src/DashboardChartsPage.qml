@@ -6,7 +6,7 @@ Item {
 
     readonly property int maxSamples: 900
     property var series: [
-        { key: "speed", label: qsTr("Speed"), color: "#7C5CFF", values: [] },
+        { key: "speed", label: qsTr("Speed"), color: "#36F08F", values: [] },
         { key: "inclination", label: qsTr("Incline"), color: "#2EC4B6", values: [] },
         { key: "heart", label: qsTr("Heart"), color: "#FF5C7A", values: [] }
     ]

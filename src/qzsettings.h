@@ -91,7 +91,7 @@ class QZSettings {
     static const QString default_garmin_password;
 
     static const QString garmin_upload_enabled;
-    static constexpr bool default_garmin_upload_enabled = false;
+    static constexpr bool default_garmin_upload_enabled = true;
 
     static const QString rpe_feel_popup_enabled;
     static constexpr bool default_rpe_feel_popup_enabled = false;
@@ -1622,64 +1622,100 @@ class QZSettings {
     static const QString default_tile_preset_resistance_5_label;
 
     static const QString tile_preset_speed_1_enabled;
-    static constexpr bool default_tile_preset_speed_1_enabled = false;
+    static constexpr bool default_tile_preset_speed_1_enabled = true;
 
     static const QString tile_preset_speed_1_order;
     static constexpr int default_tile_preset_speed_1_order = 38;
 
     static const QString tile_preset_speed_1_value;
-    static constexpr double default_tile_preset_speed_1_value = 5;
+    static constexpr double default_tile_preset_speed_1_value = 7;
 
     static const QString tile_preset_speed_1_label;
     static const QString default_tile_preset_speed_1_label;
 
     static const QString tile_preset_speed_2_enabled;
-    static constexpr bool default_tile_preset_speed_2_enabled = false;
+    static constexpr bool default_tile_preset_speed_2_enabled = true;
 
     static const QString tile_preset_speed_2_order;
     static constexpr int default_tile_preset_speed_2_order = 39;
 
     static const QString tile_preset_speed_2_value;
-    static constexpr double default_tile_preset_speed_2_value = 7;
+    static constexpr double default_tile_preset_speed_2_value = 8;
 
     static const QString tile_preset_speed_2_label;
     static const QString default_tile_preset_speed_2_label;
 
     static const QString tile_preset_speed_3_enabled;
-    static constexpr bool default_tile_preset_speed_3_enabled = false;
+    static constexpr bool default_tile_preset_speed_3_enabled = true;
 
     static const QString tile_preset_speed_3_order;
     static constexpr int default_tile_preset_speed_3_order = 40;
 
     static const QString tile_preset_speed_3_value;
-    static constexpr double default_tile_preset_speed_3_value = 10;
+    static constexpr double default_tile_preset_speed_3_value = 9;
 
     static const QString tile_preset_speed_3_label;
     static const QString default_tile_preset_speed_3_label;
 
     static const QString tile_preset_speed_4_enabled;
-    static constexpr bool default_tile_preset_speed_4_enabled = false;
+    static constexpr bool default_tile_preset_speed_4_enabled = true;
 
     static const QString tile_preset_speed_4_order;
     static constexpr int default_tile_preset_speed_4_order = 41;
 
     static const QString tile_preset_speed_4_value;
-    static constexpr double default_tile_preset_speed_4_value = 11;
+    static constexpr double default_tile_preset_speed_4_value = 10;
 
     static const QString tile_preset_speed_4_label;
     static const QString default_tile_preset_speed_4_label;
 
     static const QString tile_preset_speed_5_enabled;
-    static constexpr bool default_tile_preset_speed_5_enabled = false;
+    static constexpr bool default_tile_preset_speed_5_enabled = true;
 
     static const QString tile_preset_speed_5_order;
     static constexpr int default_tile_preset_speed_5_order = 42;
 
     static const QString tile_preset_speed_5_value;
-    static constexpr double default_tile_preset_speed_5_value = 12;
+    static constexpr double default_tile_preset_speed_5_value = 11;
 
     static const QString tile_preset_speed_5_label;
     static const QString default_tile_preset_speed_5_label;
+
+    static const QString tile_preset_speed_6_enabled;
+    static constexpr bool default_tile_preset_speed_6_enabled = true;
+
+    static const QString tile_preset_speed_6_order;
+    static constexpr int default_tile_preset_speed_6_order = 42;
+
+    static const QString tile_preset_speed_6_value;
+    static constexpr double default_tile_preset_speed_6_value = 12;
+
+    static const QString tile_preset_speed_6_label;
+    static const QString default_tile_preset_speed_6_label;
+
+    static const QString tile_preset_speed_7_enabled;
+    static constexpr bool default_tile_preset_speed_7_enabled = true;
+
+    static const QString tile_preset_speed_7_order;
+    static constexpr int default_tile_preset_speed_7_order = 42;
+
+    static const QString tile_preset_speed_7_value;
+    static constexpr double default_tile_preset_speed_7_value = 13;
+
+    static const QString tile_preset_speed_7_label;
+    static const QString default_tile_preset_speed_7_label;
+
+    static const QString tile_preset_speed_8_enabled;
+    static constexpr bool default_tile_preset_speed_8_enabled = true;
+
+    static const QString tile_preset_speed_8_order;
+    static constexpr int default_tile_preset_speed_8_order = 42;
+
+    static const QString tile_preset_speed_8_value;
+    static constexpr double default_tile_preset_speed_8_value = 14;
+
+    static const QString tile_preset_speed_8_label;
+    static const QString default_tile_preset_speed_8_label;
 
     static const QString tile_preset_inclination_1_enabled;
     static constexpr bool default_tile_preset_inclination_1_enabled = false;
@@ -1770,6 +1806,15 @@ class QZSettings {
 
     static const QString tile_preset_speed_5_color;
     static const QString default_tile_preset_speed_5_color;
+
+    static const QString tile_preset_speed_6_color;
+    static const QString default_tile_preset_speed_6_color;
+
+    static const QString tile_preset_speed_7_color;
+    static const QString default_tile_preset_speed_7_color;
+
+    static const QString tile_preset_speed_8_color;
+    static const QString default_tile_preset_speed_8_color;
 
     static const QString tile_preset_inclination_1_color;
     static const QString default_tile_preset_inclination_1_color;
@@ -2063,7 +2108,7 @@ class QZSettings {
     static constexpr bool default_treadmill_simulate_inclination_with_speed = false;
 
     static const QString garmin_companion;
-    static constexpr bool default_garmin_companion = false;
+    static constexpr bool default_garmin_companion = true;
 
     static const QString peloton_companion_workout_ocr;
     static constexpr bool default_companion_peloton_workout_ocr = false;
@@ -2191,7 +2236,7 @@ class QZSettings {
     static constexpr bool default_iconsole_elliptical = false;    
 
     static const QString autolap_distance;
-    static constexpr float default_autolap_distance = 0;
+    static constexpr float default_autolap_distance = 1;
 
     static const QString nordictrack_s20_treadmill;
     static constexpr bool default_nordictrack_s20_treadmill = false;    
@@ -2617,10 +2662,10 @@ class QZSettings {
     static constexpr bool default_treadmill_follow_wattage = false;
 
     static const QString fit_file_garmin_device_training_effect;
-    static constexpr bool default_fit_file_garmin_device_training_effect = false;
+    static constexpr bool default_fit_file_garmin_device_training_effect = true;
 
     static const QString fit_file_garmin_device_training_effect_device;
-    static constexpr int default_fit_file_garmin_device_training_effect_device = FIT_GARMIN_PRODUCT_EDGE_830;
+    static constexpr int default_fit_file_garmin_device_training_effect_device = FIT_GARMIN_PRODUCT_FENIX7;
 
     static const QString garmin_device_serial;
     static constexpr uint32_t default_garmin_device_serial = 3313379353;

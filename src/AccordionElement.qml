@@ -23,7 +23,7 @@ ColumnLayout {
         color: "red"
         Layout.alignment: Qt.AlignTop
         Layout.fillWidth: true
-        height: 48
+        height: 56
 
         Accessible.role: Accessible.Button         
         Accessible.name: title 
@@ -32,27 +32,44 @@ ColumnLayout {
 
         Rectangle {
             id: indicatRect
-            x: 16; y: 20
-            width: 8; height: 8
-            radius: 8
+            x: 16
+            anchors.verticalCenter: parent.verticalCenter
+            width: 4; height: 20
+            radius: 2
             color: "white"
         }
 
         Text {
             id: accordionText
-            x: 34; y: 13
+            x: 32
+            anchors.verticalCenter: parent.verticalCenter
+            width: parent.width - x - 56
+            elide: Text.ElideRight
             color: "#FFFFFF"
+            font.pixelSize: 16
+            font.weight: Font.DemiBold
             text: rootElement.title
         }
 
-        Image {
-            y: 13
+        Text {
+            id: indicatImg
             anchors.right: parent.right
             anchors.rightMargin: 20
-            width: 30; height: 30
-            id: indicatImg
-            // Bound to isOpen: a section opened from code (a search result) shows the right arrow
-            source: rootElement.isOpen ? "qrc:/icons/arrow-expand-vertical.png" : "qrc:/icons/arrow-collapse-vertical.png"
+            anchors.verticalCenter: parent.verticalCenter
+            text: "\u203A"
+            color: "#8A94A6"
+            font.pixelSize: 28
+            rotation: rootElement.isOpen ? 90 : 0
+            Behavior on rotation { NumberAnimation { duration: 150 } }
+        }
+
+        Rectangle {
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.leftMargin: 16
+            height: 1
+            color: Qt.rgba(1, 1, 1, 0.06)
         }
 
         MouseArea {

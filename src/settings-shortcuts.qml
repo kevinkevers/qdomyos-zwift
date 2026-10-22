@@ -123,7 +123,7 @@ ScrollView {
             font.pixelSize: Qt.application.font.pixelSize - 2
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
-            color: Material.color(Material.Lime)
+            color: "#8A94A6"
         }
 
         component ShortcutField : TextField {

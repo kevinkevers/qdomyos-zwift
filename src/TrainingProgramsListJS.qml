@@ -16,6 +16,7 @@ ColumnLayout {
 
     property url pendingWorkoutUrl: ""
     property url initialWorkoutUrl: ""
+    property string initialFolder: "training"
 
     Settings {
         id: settings
@@ -201,7 +202,7 @@ ColumnLayout {
                     FolderListModel {
                         id: folderModel
                         nameFilters: ["*.xml", "*.zwo", "*.mrc", "*.erg", "*.json", "*.xsr"]
-                        folder: "file://" + rootItem.getWritableAppDir() + 'training'
+                        folder: "file://" + rootItem.getWritableAppDir() + initialFolder
                         showDotAndDotDot: false
                         showDirs: true
                         sortField: "Name"

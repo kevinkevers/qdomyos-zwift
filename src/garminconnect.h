@@ -100,6 +100,12 @@ public:
     void downloadTodaysWorkout(const QString &saveDir);
 
     /**
+     * @brief Download every workout of the Garmin Connect library into {saveDir}/{sport}/Garmin/Library,
+     * replacing what a previous sync left there.
+     */
+    void downloadWorkoutLibrary(const QString &saveDir);
+
+    /**
      * @brief Check Garmin Connect for the latest cycling/running FTP values.
      *
      * Emits ftpValuesAvailable() only when the request succeeds. The caller decides
@@ -165,6 +171,12 @@ signals:
      * @brief Emitted when no workout is scheduled for today
      */
     void noWorkoutFoundToday();
+
+    /**
+     * @brief Emitted once the library list is fetched, before the workouts themselves are downloaded
+     * @param count Number of workouts being downloaded
+     */
+    void workoutLibraryDownloadStarted(int count);
 
     /**
      * @brief Emitted with Garmin's latest non-stale FTP values.
@@ -244,13 +256,14 @@ private:
     void downloadWorkoutDetails(const QString &workoutIdentifier, const QString &date,
                                 const QString &workoutName, const QString &itemType,
                                 const QString &sportTypeKey, const QString &saveDir,
-                                bool useScheduleEndpoint = false);
+                                bool useScheduleEndpoint = false, bool libraryWorkout = false);
     void downloadPowerCurveAndSaveWorkout(const QJsonObject &workoutPayload, const QString &date,
                                           const QString &workoutName, const QString &sportTypeKey,
-                                          const QString &saveDir);
+                                          const QString &saveDir, bool libraryWorkout = false);
     void saveWorkoutXml(const QJsonObject &workoutPayload, const QString &date,
                         const QString &workoutName, const QString &sportTypeKey,
-                        const QString &saveDir, const QMap<int, double> &powerCurve);
+                        const QString &saveDir, const QMap<int, double> &powerCurve,
+                        bool libraryWorkout = false);
 
     void loadTokensFromSettings();
     void saveTokensToSettings();

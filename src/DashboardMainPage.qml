@@ -6,7 +6,7 @@ import QtQuick.Layouts 1.3
 Item {
     id: page
     property var tiles: ({})
-    property color accent: "#7C5CFF"
+    property color accent: "#36F08F"
     signal plusClicked(string name)
     signal minusClicked(string name)
 
