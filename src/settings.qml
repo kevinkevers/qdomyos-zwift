@@ -1306,26 +1306,26 @@ import AndroidStatusBar 1.0
             property int tile_preset_resistance_5_order: 37
             property real tile_preset_resistance_5_value: 30.0
             property string tile_preset_resistance_5_label: "Res. 30"
-            property bool tile_preset_speed_1_enabled: false
+            property bool tile_preset_speed_1_enabled: true
             property int tile_preset_speed_1_order: 38
-            property real tile_preset_speed_1_value: 5.0
-            property string tile_preset_speed_1_label: "5 km/h"
-            property bool tile_preset_speed_2_enabled: false
+            property real tile_preset_speed_1_value: 7.0
+            property string tile_preset_speed_1_label: "7 km/h"
+            property bool tile_preset_speed_2_enabled: true
             property int tile_preset_speed_2_order: 39
-            property real tile_preset_speed_2_value: 7.0
-            property string tile_preset_speed_2_label: "7 km/h"
-            property bool tile_preset_speed_3_enabled: false
+            property real tile_preset_speed_2_value: 8.0
+            property string tile_preset_speed_2_label: "8 km/h"
+            property bool tile_preset_speed_3_enabled: true
             property int tile_preset_speed_3_order: 40
-            property real tile_preset_speed_3_value: 10.0
-            property string tile_preset_speed_3_label: "10 km/h"
-            property bool tile_preset_speed_4_enabled: false
+            property real tile_preset_speed_3_value: 9.0
+            property string tile_preset_speed_3_label: "9 km/h"
+            property bool tile_preset_speed_4_enabled: true
             property int tile_preset_speed_4_order: 41
-            property real tile_preset_speed_4_value: 11.0
-            property string tile_preset_speed_4_label: "11 km/h"
-            property bool tile_preset_speed_5_enabled: false
+            property real tile_preset_speed_4_value: 10.0
+            property string tile_preset_speed_4_label: "10 km/h"
+            property bool tile_preset_speed_5_enabled: true
             property int tile_preset_speed_5_order: 42
-            property real tile_preset_speed_5_value: 12.0
-            property string tile_preset_speed_5_label: "12 km/h"
+            property real tile_preset_speed_5_value: 11.0
+            property string tile_preset_speed_5_label: "11 km/h"
             property bool tile_preset_inclination_1_enabled: false
             property int tile_preset_inclination_1_order: 43
             property real tile_preset_inclination_1_value: 0.0
@@ -1541,7 +1541,7 @@ import AndroidStatusBar 1.0
             property bool treadmill_simulate_inclination_with_speed: false
 
             // from version 2.13.26
-            property bool garmin_companion: false
+            property bool garmin_companion: true
 
             // from version 2.13.27
             property bool peloton_companion_workout_ocr: false
@@ -1557,7 +1557,7 @@ import AndroidStatusBar 1.0
             // from version 2.13.43
             property string theme_background_color: "#0E1116"
             property bool theme_tile_shadow_enabled: true
-            property string theme_tile_shadow_color: "#7C5CFF"
+            property string theme_tile_shadow_color: "#36F08F"
 
             // from version 2.13.44
             property double gears_gain: 1.0
@@ -1639,7 +1639,7 @@ import AndroidStatusBar 1.0
 
             // from version 2.16.25
             property bool iconsole_elliptical: false            
-            property real autolap_distance: 0
+            property real autolap_distance: 1
             property bool nordictrack_s20_treadmill: false
 
             // from version 2.16.28
@@ -1842,7 +1842,7 @@ import AndroidStatusBar 1.0
             // from version 2.18.18
             property bool tile_biggears_swap: false
             property bool treadmill_follow_wattage: false
-            property bool fit_file_garmin_device_training_effect: false
+            property bool fit_file_garmin_device_training_effect: true
             property bool proform_treadmill_705_cst_V80_44: false
 
             // from version 2.18.19
@@ -1953,7 +1953,7 @@ import AndroidStatusBar 1.0
             // 2.19.1            
             property bool proform_treadmill_995i: false
             property bool rogue_echo_bike: false
-            property int fit_file_garmin_device_training_effect_device: 3122            
+            property int fit_file_garmin_device_training_effect_device: 3906            
 
             // 2.19.2
             property bool tile_hr_time_in_zone_individual_mode: false
@@ -2029,7 +2029,7 @@ import AndroidStatusBar 1.0
             // Garmin connect
             property string garmin_email: ""
             property string garmin_password: ""
-            property bool garmin_upload_enabled: false
+            property bool garmin_upload_enabled: true
             property string garmin_access_token: ""
             property string garmin_refresh_token: ""
             property string garmin_token_type: ""
@@ -2239,6 +2239,21 @@ import AndroidStatusBar 1.0
             property bool freemotion_t10_9b_hci: false
             property bool treadmill_runn_closed_loop: false
             property string treadmill_pid_heart_control: "Speed"
+            property bool tile_preset_speed_6_enabled: true
+            property int tile_preset_speed_6_order: 42
+            property real tile_preset_speed_6_value: 12.0
+            property string tile_preset_speed_6_label: "12 km/h"
+            property string tile_preset_speed_6_color: "grey"
+            property bool tile_preset_speed_7_enabled: true
+            property int tile_preset_speed_7_order: 42
+            property real tile_preset_speed_7_value: 13.0
+            property string tile_preset_speed_7_label: "13 km/h"
+            property string tile_preset_speed_7_color: "grey"
+            property bool tile_preset_speed_8_enabled: true
+            property int tile_preset_speed_8_order: 42
+            property real tile_preset_speed_8_value: 14.0
+            property string tile_preset_speed_8_label: "14 km/h"
+            property string tile_preset_speed_8_color: "grey"
         }
 
 
@@ -2488,7 +2503,7 @@ import AndroidStatusBar 1.0
                                 Layout.preferredHeight: visible ? implicitHeight : 0
                                 Layout.maximumHeight: visible ? implicitHeight : 0
                                 text: entry.description || ""
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                                 font.bold: true
                                 font.italic: true
                                 font.pixelSize: Qt.application.font.pixelSize - 2
@@ -2608,8 +2623,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: generalOptionsAccordion
                 title: qsTr("General Options")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 //width: 640
                 //anchors.top: acc1.bottom
@@ -2653,7 +2668,7 @@ import AndroidStatusBar 1.0
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         width: column1.width * 0.8
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -2703,7 +2718,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -2743,7 +2758,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -2804,7 +2819,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -2846,7 +2861,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -2886,7 +2901,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
 
@@ -2928,7 +2943,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -2967,7 +2982,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -3004,7 +3019,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -3044,7 +3059,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -3072,7 +3087,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -3101,7 +3116,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                         visible: settings.miles_unit
                     }
 
@@ -3130,7 +3145,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -3158,7 +3173,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }                    
                 }
             }
@@ -3178,8 +3193,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: heartRateOptionsAccordion
                 title: qsTr("Heart Rate Options")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 accordionContent: ColumnLayout {
                     spacing: 0
@@ -3207,7 +3222,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -3235,7 +3250,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -3263,7 +3278,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -3291,7 +3306,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -3319,7 +3334,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     Label {
@@ -3373,8 +3388,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: heartRateZoneAccordion
                         title: qsTr("Heart Rate Zone Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -3496,7 +3511,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             Label {
@@ -3509,13 +3524,13 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             AccordionElement {
                                 id: heartRatemaxOverrideAccordion
                                 title: qsTr("Heart Rate Max Override")
-                                indicatRectColor: Material.color(Material.Grey)
+                                indicatRectColor: Material.accent
                                 textColor: Material.color(Material.Red)
                                 color: Material.backgroundColor
                                 accordionContent: ColumnLayout {
@@ -3573,7 +3588,7 @@ import AndroidStatusBar 1.0
                                         verticalAlignment: Text.AlignVCenter
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
 
                                     RowLayout {
@@ -3615,7 +3630,7 @@ import AndroidStatusBar 1.0
                                         verticalAlignment: Text.AlignVCenter
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
                                 }
                             }
@@ -3623,8 +3638,8 @@ import AndroidStatusBar 1.0
                             AccordionElement {
                                 id: powerFromHeartRateAccordion
                                 title: qsTr("Power from Heart Rate Options")
-                                indicatRectColor: Material.color(Material.Grey)
-                                textColor: Material.color(Material.Yellow)
+                                indicatRectColor: Material.accent
+                                textColor: Material.accent
                                 color: Material.backgroundColor
                                 accordionContent: ColumnLayout {
                                     spacing: 0
@@ -3751,7 +3766,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }               
@@ -3761,8 +3776,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: bikeOptionsAccordion
                 title: qsTr("Bike Options")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 //width: 640
                 //anchors.top: acc1.bottom
@@ -3793,7 +3808,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -3822,7 +3837,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     // Add the new specific gear value restore setting
@@ -3889,7 +3904,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
                     RowLayout {
                         spacing: 10
@@ -3960,7 +3975,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -4038,14 +4053,14 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }                    
 
                     AccordionElement {
                         id: openBikeControlAccordion
                         title: qsTr("OpenBikeControl")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Grey)
+                        indicatRectColor: Material.accent
+                        textColor: "#F2F5F8"
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -4071,7 +4086,7 @@ import AndroidStatusBar 1.0
                                 font.pixelSize: Qt.application.font.pixelSize - 2
                                 wrapMode: Text.WordWrap
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -4088,7 +4103,7 @@ import AndroidStatusBar 1.0
                                 font.pixelSize: Qt.application.font.pixelSize - 2
                                 wrapMode: Text.WordWrap
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             Label {
@@ -4304,7 +4319,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -4345,7 +4360,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -4384,7 +4399,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -4423,7 +4438,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -4462,7 +4477,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -4501,7 +4516,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -4540,7 +4555,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -4580,7 +4595,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -4617,21 +4632,21 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     NewPageElement {
                         title: qsTr("Custom Gear Table")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: "customgears.qml"
                     }
 
                     NewPageElement {
                         title: qsTr("Custom Inclination to Resistance Table")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: "custominclinationresistance.qml"
                     }
@@ -4671,13 +4686,13 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     AccordionElement {
                         id: automaticVirtualShiftingAccordion
                         title: qsTr("Automatic Virtual Shifting")
-                        indicatRectColor: Material.color(Material.Grey)
+                        indicatRectColor: Material.accent
                         textColor: Material.color(Material.Red)
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
@@ -4708,7 +4723,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                                 visible: automaticVirtualShiftingEnabledDelegate.checked
                             }
 
@@ -5117,7 +5132,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     Label {
@@ -5130,13 +5145,13 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }                    
 
                     NewPageElement {
                         title: qsTr("Wahoo Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: "gears.qml"
                     }
@@ -5144,8 +5159,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: schwinnBikeAccordion
                         title: qsTr("Schwinn Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -5226,15 +5241,15 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }
                     AccordionElement {
                         id: horizonBikeAccordion
                         title: qsTr("Horizon Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: RowLayout {
                             spacing: 10
@@ -5266,8 +5281,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: echelonBikeOptionsAccordion
                         title: qsTr("Echelon Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         //width: 640
                         //anchors.top: acc1.bottom
@@ -5372,8 +5387,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: inspireBikeAccordion
                         title: qsTr("Inspire Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -5411,8 +5426,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: renphoBikeAccordion
                         title: qsTr("Renpho Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -5462,8 +5477,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: hammerBikeAccordion
                         title: qsTr("Hammer Racer Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: IndicatorOnlySwitch {
                             id: hammerBikeDelegate
@@ -5483,8 +5498,8 @@ import AndroidStatusBar 1.0
 
                     AccordionElement {
                         title: qsTr("Saris/Cycleops Hammer trainer Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: IndicatorOnlySwitch {
                             text: qsTr("Enable support")
@@ -5504,8 +5519,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: cardioFitBikeAccordion
                         title: qsTr("CardioFIT Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: IndicatorOnlySwitch {
                             id: spht9600iEBikeDelegate
@@ -5525,8 +5540,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: yesoulBikeAccordion
                         title: qsTr("Yesoul Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: IndicatorOnlySwitch {
                             id: yesoulBikeDelegate
@@ -5547,8 +5562,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: snodeBikeAccordion
                         title: qsTr("Snode Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: IndicatorOnlySwitch {
                             id: snodeBikeDelegate
@@ -5568,8 +5583,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: skandikaBikeAccordion
                         title: qsTr("Skandika Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -5597,15 +5612,15 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }
                     AccordionElement {
                         id: fitplusBikeAccordion
                         title: qsTr("Fitplus Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent:
 												ColumnLayout {
@@ -5671,8 +5686,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: lifespanBikeAccordion
                         title: qsTr("LifeSpan Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -5695,8 +5710,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: flywheelBikeAccordion
                         title: qsTr("Flywheel Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -5759,8 +5774,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: domyosBikeAccordion
                         title: qsTr("Domyos Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -5846,8 +5861,8 @@ import AndroidStatusBar 1.0
                     }                
                     AccordionElement {
                         title: qsTr("Tacx Neo Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             IndicatorOnlySwitch {
@@ -5887,15 +5902,15 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }
                     AccordionElement {
                         id: proformBikeAccordion
                         title: qsTr("Proform/Norditrack Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             RowLayout {
@@ -6193,8 +6208,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: computrainerBikeAccordion
                         title: qsTr("Computrainer Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         RowLayout {
                             spacing: 10
@@ -6226,8 +6241,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: kettlerUsbBikeAccordion
                         title: qsTr("Kettler USB Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
 												accordionContent: ColumnLayout {
                             spacing: 0
@@ -6290,8 +6305,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: freebeatBikeAccordion
                         title: qsTr("Freebeat Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -6325,8 +6340,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: m3iBikeAccordion
                         title: qsTr("M3i Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         //width: 640
                         //anchors.top: acc1.bottom
@@ -6422,8 +6437,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: soleBikeAccordion
                         title: qsTr("Sole Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -6446,8 +6461,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: technogymBikeAccordion
                         title: qsTr("Technogym Bike Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -6519,8 +6534,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: toputureBikeAccordion
                         title: qsTr("Toputure Bikes")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -6549,7 +6564,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }
@@ -6559,8 +6574,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: uiAntOptionsAccordion
                 title: qsTr("Ant+ Options (only for some Android)")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 //width: 640
                 //anchors.top: acc1.bottom
@@ -6606,7 +6621,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -6644,7 +6659,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
 
@@ -6682,7 +6697,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -6738,7 +6753,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -6765,7 +6780,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
                 }
             }
@@ -6788,8 +6803,8 @@ import AndroidStatusBar 1.0
             NewPageElement {
                 id: tileOptionsAccordion
                 title: qsTr("Tiles Options")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 accordionContent: "settings-tiles.qml"
             }
@@ -6797,8 +6812,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: uiGeneralOptionsAccordion
                 title: qsTr("General UI Options")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 //width: 640
                 //anchors.top: acc1.bottom
@@ -6847,7 +6862,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -6885,7 +6900,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     Label {
@@ -6898,7 +6913,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -6938,7 +6953,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -6978,7 +6993,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -7018,7 +7033,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -7046,7 +7061,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     Button {
@@ -7090,7 +7105,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -7145,14 +7160,14 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     AccordionElement {
                         id: themesOptionsAccordion
                         title: qsTr("UI Themes")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -7351,8 +7366,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: pelotonAccordion
                 title: qsTr("Peloton Options") + "\uD83E\uDD47"
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 accordionContent: ColumnLayout {
                     spacing: 0
@@ -7392,7 +7407,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -7440,7 +7455,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 */
 
@@ -7496,7 +7511,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -7534,7 +7549,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -7572,7 +7587,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -7607,7 +7622,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -7642,7 +7657,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -7680,7 +7695,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -7717,7 +7732,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -7765,7 +7780,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -7804,7 +7819,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -7844,7 +7859,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -7872,7 +7887,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }                    
 
                     IndicatorOnlySwitch {
@@ -7899,7 +7914,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -7926,7 +7941,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     /*
@@ -7994,7 +8009,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -8034,7 +8049,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -8087,7 +8102,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -8114,7 +8129,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -8142,7 +8157,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -8169,7 +8184,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
                     /*
                     IndicatorOnlySwitch {
@@ -8197,15 +8212,15 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }*/
                 }
             }
 
             AccordionElement {
                 title: qsTr("Zwift Options") + "\uD83E\uDD47"
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 accordionContent: ColumnLayout {
                     spacing: 0
@@ -8244,7 +8259,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -8293,7 +8308,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }              
 
                     MessageDialog {
@@ -8343,7 +8358,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 /*
                     IndicatorOnlySwitch {
@@ -8370,7 +8385,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 */
 
@@ -8398,7 +8413,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -8437,7 +8452,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }               
 
                     IndicatorOnlySwitch {
@@ -8464,7 +8479,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -8491,7 +8506,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -8532,15 +8547,15 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
                 }
             }
 
             AccordionElement {
                 title: qsTr("Rouvy Options") + "\uD83E\uDD47"
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 accordionContent: ColumnLayout {
                     spacing: 0
@@ -8569,7 +8584,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
                 }
             }
@@ -8577,8 +8592,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: garminOptionsAccordion
                 title: qsTr("Garmin Options") + "\uD83E\uDD47"
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 accordionContent: ColumnLayout {
                     spacing: 0
@@ -8607,7 +8622,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -8634,7 +8649,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -8661,7 +8676,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     Label {
@@ -8696,7 +8711,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -8723,7 +8738,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -8750,7 +8765,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -8936,7 +8951,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -8963,7 +8978,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     Label {
@@ -9706,8 +9721,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: trainingProgramOptionsAccordion
                 title: qsTr("Training Program Options")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 //width: 640
                 //anchors.top: acc1.bottom
@@ -9741,7 +9756,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -9768,7 +9783,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -9795,7 +9810,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -9823,7 +9838,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -9850,7 +9865,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -9916,7 +9931,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -9981,7 +9996,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -10008,7 +10023,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -10044,7 +10059,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -10079,7 +10094,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -10106,7 +10121,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -10145,7 +10160,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -10184,7 +10199,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -10223,7 +10238,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -10262,7 +10277,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -10301,7 +10316,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -10416,7 +10431,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -10455,7 +10470,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -10691,7 +10706,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
                 }
             }
@@ -10699,8 +10714,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id:treadmillAccordion
                 title: qsTr("Treadmill Options")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 accordionContent: ColumnLayout {
                     spacing: 0
@@ -10728,7 +10743,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -10756,7 +10771,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -10784,7 +10799,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -10812,7 +10827,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -10840,7 +10855,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -10868,7 +10883,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -10907,7 +10922,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
 
@@ -10948,7 +10963,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }                
 
                     RowLayout {
@@ -10987,7 +11002,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -11024,7 +11039,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -11061,7 +11076,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -11100,14 +11115,14 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     NewPageElement {
                         //: Section title: table that replaces each incline value the treadmill receives with a user-defined value. Avoid the technical word "override".
                         title: qsTr("Inclination Overrides")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Grey)
+                        indicatRectColor: Material.accent
+                        textColor: "#F2F5F8"
                         color: Material.backgroundColor
                         accordionContent: "settings-treadmill-inclination-override.qml"
                     }
@@ -11122,7 +11137,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -11149,7 +11164,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     Label {
@@ -11188,7 +11203,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     Label {
@@ -11201,14 +11216,14 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     AccordionElement {
                         id: proformTreadmillAccordion
                         title: qsTr("Proform/Nordictrack Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0    
@@ -11603,8 +11618,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: pafersTreadmillAccordion
                         title: qsTr("Pafers Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -11641,8 +11656,8 @@ import AndroidStatusBar 1.0
 
                     AccordionElement {
                         title: qsTr("GEM Module Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -11664,8 +11679,8 @@ import AndroidStatusBar 1.0
 
                     AccordionElement {
                         title: qsTr("Echelon Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -11688,8 +11703,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: kingsmithTreadmillAccordion
                         title: qsTr("KingSmith Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -11790,7 +11805,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }
@@ -11798,8 +11813,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: runnerTTreadmillAccordion
                         title: qsTr("RunnerT Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -11849,8 +11864,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: domyosTreadmillAccordion
                         title: qsTr("Domyos Treadmill Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -12086,7 +12101,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }
@@ -12094,8 +12109,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id:soleTreadmillAccordion
                         title: qsTr("Sole Treadmill Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -12188,8 +12203,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: technogymTreadmillAccordion
                         title: qsTr("Technogym Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -12213,8 +12228,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: fitshowAccordion
                         title: qsTr("Fitshow Treadmill Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             IndicatorOnlySwitch {
@@ -12304,8 +12319,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: eslinkerTreadmillAccordion
                         title: qsTr("ESLinker Treadmill Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             IndicatorOnlySwitch {
@@ -12355,8 +12370,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: horizonTreadmillAccordion
                         title: qsTr("Horizon Treadmill Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -12567,8 +12582,8 @@ import AndroidStatusBar 1.0
 
                     AccordionElement {
                         title: qsTr("Bodytone Treadmill Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -12591,8 +12606,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: bowflexTreadmillAccordion
                         title: qsTr("Bowflex Treadmill Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -12618,8 +12633,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: toorxTreadmillAccordion
                 title: qsTr("Toorx/iConsole Options")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 accordionContent: ColumnLayout {
                     spacing: 0
@@ -12987,15 +13002,15 @@ import AndroidStatusBar 1.0
 
             AccordionElement {
                 title: qsTr("Rower Options")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 accordionContent: ColumnLayout {
                     spacing: 0
                     AccordionElement {
                         title: qsTr("PM3, PM4 Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             RowLayout {
@@ -13065,7 +13080,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     CheckBox {
@@ -13100,8 +13115,8 @@ import AndroidStatusBar 1.0
 
                     AccordionElement {
                         title: qsTr("Proform/Nordictrack Rower Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             IndicatorOnlySwitch {
@@ -13167,8 +13182,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: ellipticalAccordion
                 title: qsTr("Elliptical Options")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 accordionContent: ColumnLayout {
                     spacing: 0
@@ -13176,8 +13191,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: domyosEllipticalAccordion
                         title: qsTr("Domyos Elliptical Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: RowLayout {
                             spacing: 10
@@ -13221,8 +13236,8 @@ import AndroidStatusBar 1.0
                     }
                     AccordionElement {
                         title: "Life Fitness 95xi (CSAFE)"
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             RowLayout {
@@ -13292,7 +13307,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
                     IndicatorOnlySwitch {
                         id: gymstickGX60EllipticalDelegate
@@ -13312,8 +13327,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: proformEllipticalAccordion
                         title: qsTr("Proform/Nordictrack Elliptical Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             IndicatorOnlySwitch {
@@ -13426,8 +13441,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: soleEllipticalAccordion
                         title: qsTr("Sole Elliptical Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             IndicatorOnlySwitch {
@@ -13463,8 +13478,8 @@ import AndroidStatusBar 1.0
 
                     AccordionElement {
                         title: qsTr("iConcept Elliptical Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             IndicatorOnlySwitch {
@@ -13488,8 +13503,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: advancedSettingsAccordion
                 title: qsTr("Advanced Settings")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 //width: 640
                 //anchors.top: acc1.bottom
@@ -13541,7 +13556,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -13568,7 +13583,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -13608,7 +13623,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -13647,7 +13662,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -13685,7 +13700,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -13725,7 +13740,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
 
@@ -13765,7 +13780,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -13805,7 +13820,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -13844,7 +13859,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }                   
 
                     Label {
@@ -13914,7 +13929,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -13941,7 +13956,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }                    
 
                     IndicatorOnlySwitch {
@@ -13969,7 +13984,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -13996,7 +14011,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -14023,7 +14038,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -14051,7 +14066,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -14078,7 +14093,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -14123,7 +14138,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -14151,7 +14166,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -14179,7 +14194,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -14219,7 +14234,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -14258,7 +14273,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -14296,7 +14311,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -14335,7 +14350,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }           
 
                     IndicatorOnlySwitch {
@@ -14362,7 +14377,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
 
@@ -14390,7 +14405,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -14417,7 +14432,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }                    
 
                     RowLayout {
@@ -14454,7 +14469,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     RowLayout {
@@ -14491,7 +14506,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }                    
                 }
             }
@@ -14499,8 +14514,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: accesoriesAccordion
                 title: qsTr("Accessories")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 accordionContent: ColumnLayout {
                     spacing: 0
@@ -14508,8 +14523,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: cadenceSensorOptionsAccordion
                         title: qsTr("Cadence Sensor Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -14577,7 +14592,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             Label {
@@ -14625,7 +14640,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             RowLayout {
@@ -14664,7 +14679,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -14691,7 +14706,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -14718,7 +14733,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             RowLayout {
@@ -14827,7 +14842,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }
@@ -14835,8 +14850,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: powerSensorOptionsAccordion
                         title: qsTr("Power Sensor Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -14865,7 +14880,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -14893,7 +14908,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -14921,7 +14936,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -14949,7 +14964,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -14976,7 +14991,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -15003,7 +15018,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             Label {
@@ -15040,7 +15055,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -15067,7 +15082,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -15094,7 +15109,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -15121,7 +15136,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             Label {
@@ -15180,7 +15195,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             Label {
@@ -15228,7 +15243,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }
@@ -15236,15 +15251,15 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: eliteAccesoriesAccordion
                         title: qsTr("Elite™ Products")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
                             AccordionElement {
                                 id: eliteRizerOptionsAccordion
                                 title: qsTr("Elite Rizer Options")
-                                indicatRectColor: Material.color(Material.Grey)
+                                indicatRectColor: Material.accent
                                 textColor: Material.color(Material.Blue)
                                 color: Material.backgroundColor
                                 accordionContent: ColumnLayout {
@@ -15313,7 +15328,7 @@ import AndroidStatusBar 1.0
                             AccordionElement {
                                 id: eliteSterzoSmartOptionsAccordion
                                 title: qsTr("Elite Sterzo Smart Options")
-                                indicatRectColor: Material.color(Material.Grey)
+                                indicatRectColor: Material.accent
                                 textColor: Material.color(Material.Blue)
                                 color: Material.backgroundColor
                                 accordionContent: ColumnLayout {
@@ -15360,8 +15375,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: ftmsAccessoryOptionsAccordion
                         title: qsTr("SmartSpin2k Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -15494,7 +15509,7 @@ import AndroidStatusBar 1.0
                             AccordionElement {
                                 id: ftmsAccessoryAdvancedOptionsAccordion
                                 title: qsTr("Advanced SmartSpin2k Calibration")
-                                indicatRectColor: Material.color(Material.Grey)
+                                indicatRectColor: Material.accent
                                 textColor: Material.color(Material.Blue)
                                 color: Material.backgroundColor
                                 accordionContent: ColumnLayout {
@@ -15703,8 +15718,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: fitmetriaFanFitOptionsAccordion
                         title: qsTr("Fitmetria Fitfan™ Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
 
                         accordionContent: ColumnLayout {
@@ -15809,8 +15824,8 @@ import AndroidStatusBar 1.0
 
                     AccordionElement {
                         title: qsTr("Wahoo Kickr HeadWind Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
 
                         accordionContent: ColumnLayout {
@@ -15908,8 +15923,8 @@ import AndroidStatusBar 1.0
 
                     AccordionElement {
                         title: qsTr("Elite Aria Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
 
                         accordionContent: ColumnLayout {
@@ -16008,8 +16023,8 @@ import AndroidStatusBar 1.0
 /*
                 AccordionElement {
                         title: qsTr("SRAM Devices Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
 
                         accordionContent: ColumnLayout {
@@ -16038,15 +16053,15 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }*/
 
                 AccordionElement {
                         title: qsTr("Thinkrider Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
 
                         accordionContent: ColumnLayout {
@@ -16075,15 +16090,15 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }
 
                 AccordionElement {
                         title: qsTr("CYCPLUS Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
 
                         accordionContent: ColumnLayout {
@@ -16112,15 +16127,15 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }
 
                 AccordionElement {
                         title: qsTr("Zwift Devices Options")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
 
                         accordionContent: ColumnLayout {
@@ -16149,7 +16164,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -16176,7 +16191,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -16203,7 +16218,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }                            
 
                             IndicatorOnlySwitch {
@@ -16230,7 +16245,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -16257,7 +16272,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             IndicatorOnlySwitch {
@@ -16284,7 +16299,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             Label {
@@ -16305,7 +16320,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             RowLayout {
@@ -16439,7 +16454,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }                    
@@ -16449,8 +16464,8 @@ import AndroidStatusBar 1.0
             NewPageElement {
                 id: labelTTSSettings
                 title: qsTr("TTS (Text to Speech) Settings 🔊")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 accordionContent: "settings-tts.qml"
             }
@@ -16458,8 +16473,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: mapsAccordion
                 title: qsTr("Maps 🗺️")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 //width: 640
                 //anchors.top: acc1.bottom
@@ -16513,8 +16528,8 @@ import AndroidStatusBar 1.0
             AccordionElement {
                 id: videoAccordion
                 title: qsTr("Video 🎥")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 //width: 640
                 //anchors.top: acc1.bottom
@@ -16554,8 +16569,8 @@ import AndroidStatusBar 1.0
             StaticAccordionElement {
                 id: experimentalFeatureAccordion
                 title: qsTr("Experimental Features")
-                indicatRectColor: Material.color(Material.Grey)
-                textColor: Material.color(Material.Grey)
+                indicatRectColor: Material.accent
+                textColor: "#F2F5F8"
                 color: Material.backgroundColor
                 //width: 640
                 //anchors.top: acc1.bottom
@@ -16587,7 +16602,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -16615,7 +16630,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -16643,7 +16658,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -16671,7 +16686,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
         /*
                     IndicatorOnlySwitch {
@@ -16726,7 +16741,7 @@ import AndroidStatusBar 1.0
                                         verticalAlignment: Text.AlignVCenter
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
 
                                     IndicatorOnlySwitch {
@@ -16754,7 +16769,7 @@ import AndroidStatusBar 1.0
                                         verticalAlignment: Text.AlignVCenter
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
 
                                     IndicatorOnlySwitch {
@@ -16782,7 +16797,7 @@ import AndroidStatusBar 1.0
                                         verticalAlignment: Text.AlignVCenter
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
 
                                     IndicatorOnlySwitch {
@@ -16812,7 +16827,7 @@ import AndroidStatusBar 1.0
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
                                         visible: settings.virtual_device_rower
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
 
                                     IndicatorOnlySwitch {
@@ -16840,7 +16855,7 @@ import AndroidStatusBar 1.0
                                         verticalAlignment: Text.AlignVCenter
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
 
                                     IndicatorOnlySwitch {
@@ -16868,7 +16883,7 @@ import AndroidStatusBar 1.0
                                         verticalAlignment: Text.AlignVCenter
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
 
 
@@ -16897,7 +16912,7 @@ import AndroidStatusBar 1.0
                                         verticalAlignment: Text.AlignVCenter
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
 
                                     IndicatorOnlySwitch {
@@ -16925,7 +16940,7 @@ import AndroidStatusBar 1.0
                                         verticalAlignment: Text.AlignVCenter
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
 
                                     SwitchDelegate {
@@ -16952,7 +16967,7 @@ import AndroidStatusBar 1.0
                                         verticalAlignment: Text.AlignVCenter
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
                                 }
                             }
@@ -16989,7 +17004,7 @@ import AndroidStatusBar 1.0
                                         verticalAlignment: Text.AlignVCenter
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
 
                                     RowLayout {
@@ -17027,7 +17042,7 @@ import AndroidStatusBar 1.0
                                         verticalAlignment: Text.AlignVCenter
                                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                         Layout.fillWidth: true
-                                        color: Material.color(Material.Lime)
+                                        color: "#8A94A6"
                                     }
 
                                     RowLayout {
@@ -17065,8 +17080,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: mqttAccordion
                         title: qsTr("MQTT Settings")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             spacing: 0
@@ -17103,7 +17118,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             RowLayout {
@@ -17143,7 +17158,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             // Username field
@@ -17179,7 +17194,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             // Password field
@@ -17216,7 +17231,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
 
                             // Device ID field
@@ -17252,7 +17267,7 @@ import AndroidStatusBar 1.0
                                 verticalAlignment: Text.AlignVCenter
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 Layout.fillWidth: true
-                                color: Material.color(Material.Lime)
+                                color: "#8A94A6"
                             }
                         }
                     }               
@@ -17260,8 +17275,8 @@ import AndroidStatusBar 1.0
                     AccordionElement {
                         id: oscAccordion
                         title: qsTr("OSC Settings")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Yellow)
+                        indicatRectColor: Material.accent
+                        textColor: Material.accent
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                         spacing: 0
@@ -17345,7 +17360,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -17373,14 +17388,14 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     AccordionElement {
                         id: templateSettingsAccordion
                         title: qsTr("Template Settings")
-                        indicatRectColor: Material.color(Material.Grey)
-                        textColor: Material.color(Material.Grey)
+                        indicatRectColor: Material.accent
+                        textColor: "#F2F5F8"
                         color: Material.backgroundColor
                         accordionContent: ColumnLayout {
                             id: templateSettingsContent
@@ -17446,7 +17461,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -17474,7 +17489,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -17501,7 +17516,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -17529,7 +17544,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -17557,7 +17572,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -17585,7 +17600,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -17613,7 +17628,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -17640,7 +17655,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -17668,7 +17683,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -17697,7 +17712,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     IndicatorOnlySwitch {
@@ -17724,7 +17739,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }                    
 
                     IndicatorOnlySwitch {
@@ -17752,7 +17767,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
 
                     GridLayout {
@@ -17790,7 +17805,7 @@ import AndroidStatusBar 1.0
                         verticalAlignment: Text.AlignVCenter
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
-                        color: Material.color(Material.Lime)
+                        color: "#8A94A6"
                     }
                 }
             }

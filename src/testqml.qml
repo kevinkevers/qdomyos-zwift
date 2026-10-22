@@ -66,7 +66,7 @@ ApplicationWindow {
         property string theme_tile_background_color: "#171B22"
         property string theme_background_color: "#0E1116"
         property bool theme_tile_shadow_enabled: true
-        property string theme_tile_shadow_color: "#7C5CFF"
+        property string theme_tile_shadow_color: "#36F08F"
         property int theme_tile_secondline_textsize: 12
 		
     }

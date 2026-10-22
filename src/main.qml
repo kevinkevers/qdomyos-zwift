@@ -17,7 +17,7 @@ ApplicationWindow {
     visibility: Qt.WindowFullScreen
     visible: true
 	 objectName: "stack"
-    title: Qt.platform.os === "ios" ? "" : qsTr("qDomyos-Zwift")
+    title: Qt.platform.os === "ios" ? "" : qsTr("Stride")
 
     // Force update on orientation change
     property int currentOrientation: Screen.orientation
@@ -95,6 +95,17 @@ ApplicationWindow {
         return deviceName.replace(/ \(\d+%\)$/, "")
     }
 
+    function openTrainProgramList(folder) {
+        stackView.push(CHARTJS ? "TrainingProgramsListJS.qml" : "TrainingProgramsList.qml", { initialFolder: folder })
+        stackView.currentItem.trainprogram_open_clicked.connect(trainprogram_open_clicked)
+        stackView.currentItem.trainprogram_open_other_folder.connect(trainprogram_open_other_folder)
+        stackView.currentItem.trainprogram_preview.connect(trainprogram_preview)
+        stackView.currentItem.trainprogram_autostart_requested.connect(trainprogram_autostart_requested)
+        stackView.currentItem.trainprogram_open_clicked.connect(function(url) {
+            stackView.pop();
+        });
+    }
+
     function maybeOpenGymModePopup() {
         if (typeof rootItem === "undefined" || !rootItem) {
             return
@@ -149,7 +160,7 @@ ApplicationWindow {
         id: settings
         property string profile_name: "default"        
         property string theme_status_bar_background_color: "#0E1116"
-        property string theme_tile_shadow_color: "#7C5CFF"
+        property string theme_tile_shadow_color: "#36F08F"
         property bool volume_change_gears: false
         property string peloton_username: "username"
         property string peloton_password: "password"
@@ -1429,17 +1440,7 @@ ApplicationWindow {
                     text: qsTr("Open Train Program")
                     width: parent.width
                     onClicked: {
-                        if(CHARTJS)
-                            stackView.push("TrainingProgramsListJS.qml")
-                        else
-                            stackView.push("TrainingProgramsList.qml")
-                        stackView.currentItem.trainprogram_open_clicked.connect(trainprogram_open_clicked)
-                        stackView.currentItem.trainprogram_open_other_folder.connect(trainprogram_open_other_folder)
-                        stackView.currentItem.trainprogram_preview.connect(trainprogram_preview)
-                        stackView.currentItem.trainprogram_autostart_requested.connect(trainprogram_autostart_requested)
-                        stackView.currentItem.trainprogram_open_clicked.connect(function(url) {
-                            stackView.pop();
-                         });
+                        openTrainProgramList("training")
                         drawer.close()
                     }
                 }

@@ -761,6 +761,24 @@ homeform::homeform(QQmlApplicationEngine *engine, bluetooth *bl) {
         settings.value(QZSettings::tile_preset_speed_5_label, QZSettings::default_tile_preset_speed_5_label).toString(),
         settings.value(QZSettings::tile_preset_speed_5_color, QZSettings::default_tile_preset_speed_5_color)
             .toString());
+    preset_speed_6 = new DataObject(
+        "", "", "", false, QStringLiteral("preset_speed_6"), 48, labelFontSize, QStringLiteral("white"),
+        QLatin1String(""), 0, true,
+        settings.value(QZSettings::tile_preset_speed_6_label, QZSettings::default_tile_preset_speed_6_label).toString(),
+        settings.value(QZSettings::tile_preset_speed_6_color, QZSettings::default_tile_preset_speed_6_color)
+            .toString());
+    preset_speed_7 = new DataObject(
+        "", "", "", false, QStringLiteral("preset_speed_7"), 48, labelFontSize, QStringLiteral("white"),
+        QLatin1String(""), 0, true,
+        settings.value(QZSettings::tile_preset_speed_7_label, QZSettings::default_tile_preset_speed_7_label).toString(),
+        settings.value(QZSettings::tile_preset_speed_7_color, QZSettings::default_tile_preset_speed_7_color)
+            .toString());
+    preset_speed_8 = new DataObject(
+        "", "", "", false, QStringLiteral("preset_speed_8"), 48, labelFontSize, QStringLiteral("white"),
+        QLatin1String(""), 0, true,
+        settings.value(QZSettings::tile_preset_speed_8_label, QZSettings::default_tile_preset_speed_8_label).toString(),
+        settings.value(QZSettings::tile_preset_speed_8_color, QZSettings::default_tile_preset_speed_8_color)
+            .toString());
     preset_inclination_1 = new DataObject(
         "", "", "", false, QStringLiteral("preset_inclination_1"), 48, labelFontSize, QStringLiteral("white"),
         QLatin1String(""), 0, true,
@@ -1357,6 +1375,9 @@ homeform::homeform(QQmlApplicationEngine *engine, bluetooth *bl) {
         if (garmin_enabled && garmin_download_workouts_on_start && !token.isEmpty()) {
             qDebug() << "Garmin Connect: Auto-downloading today's workout...";
             garmin_download_todays_workout();
+            if (garminConnect) {
+                garminConnect->downloadWorkoutLibrary(getWritableAppDir() + QStringLiteral("training"));
+            }
         } else {
             qDebug() << "Garmin Connect: Workout auto-download skipped (not configured or not authenticated)";
         }
@@ -2613,6 +2634,27 @@ void homeform::sortTiles() {
                 preset_speed_5->setGridId(i);
                 dataList.append(preset_speed_5);
             }
+            if (settings.value(QZSettings::tile_preset_speed_6_enabled, QZSettings::default_tile_preset_speed_6_enabled)
+                    .toBool() &&
+                settings.value(QZSettings::tile_preset_speed_6_order, QZSettings::default_tile_preset_speed_6_order)
+                        .toInt() == i) {
+                preset_speed_6->setGridId(i);
+                dataList.append(preset_speed_6);
+            }
+            if (settings.value(QZSettings::tile_preset_speed_7_enabled, QZSettings::default_tile_preset_speed_7_enabled)
+                    .toBool() &&
+                settings.value(QZSettings::tile_preset_speed_7_order, QZSettings::default_tile_preset_speed_7_order)
+                        .toInt() == i) {
+                preset_speed_7->setGridId(i);
+                dataList.append(preset_speed_7);
+            }
+            if (settings.value(QZSettings::tile_preset_speed_8_enabled, QZSettings::default_tile_preset_speed_8_enabled)
+                    .toBool() &&
+                settings.value(QZSettings::tile_preset_speed_8_order, QZSettings::default_tile_preset_speed_8_order)
+                        .toInt() == i) {
+                preset_speed_8->setGridId(i);
+                dataList.append(preset_speed_8);
+            }
             if (settings
                     .value(QZSettings::tile_preset_inclination_1_enabled,
                            QZSettings::default_tile_preset_inclination_1_enabled)
@@ -3007,6 +3049,27 @@ void homeform::sortTiles() {
                         .toInt() == i) {
                 preset_speed_5->setGridId(i);
                 dataList.append(preset_speed_5);
+            }
+            if (settings.value(QZSettings::tile_preset_speed_6_enabled, QZSettings::default_tile_preset_speed_6_enabled)
+                    .toBool() &&
+                settings.value(QZSettings::tile_preset_speed_6_order, QZSettings::default_tile_preset_speed_6_order)
+                        .toInt() == i) {
+                preset_speed_6->setGridId(i);
+                dataList.append(preset_speed_6);
+            }
+            if (settings.value(QZSettings::tile_preset_speed_7_enabled, QZSettings::default_tile_preset_speed_7_enabled)
+                    .toBool() &&
+                settings.value(QZSettings::tile_preset_speed_7_order, QZSettings::default_tile_preset_speed_7_order)
+                        .toInt() == i) {
+                preset_speed_7->setGridId(i);
+                dataList.append(preset_speed_7);
+            }
+            if (settings.value(QZSettings::tile_preset_speed_8_enabled, QZSettings::default_tile_preset_speed_8_enabled)
+                    .toBool() &&
+                settings.value(QZSettings::tile_preset_speed_8_order, QZSettings::default_tile_preset_speed_8_order)
+                        .toInt() == i) {
+                preset_speed_8->setGridId(i);
+                dataList.append(preset_speed_8);
             }
             if (settings
                     .value(QZSettings::tile_preset_inclination_1_enabled,
@@ -5047,6 +5110,21 @@ void homeform::LargeButton(const QString &name) {
             ((treadmill *)bluetoothManager->device())
                 ->changeSpeed(
                     settings.value(QZSettings::tile_preset_speed_5_value, QZSettings::default_tile_preset_speed_5_value)
+                        .toDouble());
+        } else if (name.contains(QStringLiteral("preset_speed_6"))) {
+            ((treadmill *)bluetoothManager->device())
+                ->changeSpeed(
+                    settings.value(QZSettings::tile_preset_speed_6_value, QZSettings::default_tile_preset_speed_6_value)
+                        .toDouble());
+        } else if (name.contains(QStringLiteral("preset_speed_7"))) {
+            ((treadmill *)bluetoothManager->device())
+                ->changeSpeed(
+                    settings.value(QZSettings::tile_preset_speed_7_value, QZSettings::default_tile_preset_speed_7_value)
+                        .toDouble());
+        } else if (name.contains(QStringLiteral("preset_speed_8"))) {
+            ((treadmill *)bluetoothManager->device())
+                ->changeSpeed(
+                    settings.value(QZSettings::tile_preset_speed_8_value, QZSettings::default_tile_preset_speed_8_value)
                         .toDouble());
         } else if (name.contains(QStringLiteral("preset_inclination_1"))) {
             ((treadmill *)bluetoothManager->device())
@@ -10499,6 +10577,10 @@ void homeform::garmin_connect_login() {
                     showNextGarminWorkoutPrompt();
                 });
 
+        connect(garminConnect, &GarminConnect::workoutLibraryDownloadStarted, this, [this](int count) {
+            setToastRequested(QObject::tr("Garmin: syncing %1 workouts").arg(count));
+        });
+
         connect(garminConnect, &GarminConnect::workoutDownloadFailed, this,
                 [this](const QString &error) {
                     qDebug() << "Garmin: Workout download failed:" << error;
@@ -10890,6 +10972,29 @@ void homeform::uploadHistoricalWorkoutToGarmin(const QString &filePath) {
     if (!garminConnect->uploadFitFile(filePath)) {
         setToastRequested(QObject::tr("Garmin: Upload failed - %1").arg(garminConnect->lastError()));
     }
+}
+
+void homeform::garmin_retry_last_upload() {
+    if (lastFitFileSaved.isEmpty()) {
+        setToastRequested(QObject::tr("Garmin: no workout saved yet"));
+        return;
+    }
+    garmin_upload_file_prepare();
+}
+
+void homeform::garmin_sync_workout_library() {
+    if (!isGarminUploadConfigured()) {
+        setToastRequested(QObject::tr("Garmin is not configured"));
+        return;
+    }
+    if (!garminConnect || !garminConnect->isAuthenticated()) {
+        garmin_connect_login();
+    }
+    if (!garminConnect || !garminConnect->isAuthenticated()) {
+        setToastRequested(QObject::tr("Garmin: Not authenticated. Please login first."));
+        return;
+    }
+    garminConnect->downloadWorkoutLibrary(getWritableAppDir() + QStringLiteral("training"));
 }
 
 void homeform::uploadHistoricalWorkoutToIntervalsICU(const QString &filePath) {

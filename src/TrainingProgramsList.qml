@@ -14,6 +14,7 @@ ColumnLayout {
     signal trainprogram_autostart_requested()
     property url selectedWorkoutUrl: ""
     property url initialWorkoutUrl: ""
+    property string initialFolder: "training"
 
     Connections {
         target: rootItem
@@ -144,7 +145,7 @@ ColumnLayout {
                 FolderListModel {
                     id: folderModel
                     nameFilters: ["*.xml", "*.zwo", "*.mrc", "*.erg", "*.json", "*.xsr"]
-                    folder: "file://" + rootItem.getWritableAppDir() + 'training'
+                    folder: "file://" + rootItem.getWritableAppDir() + initialFolder
                           showDotAndDotDot: false
                     showDirs: true
                           sortField: "Name"

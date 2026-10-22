@@ -8,7 +8,7 @@ Rectangle {
     property string caption: tile ? tile.secondLine : ""
     property color valueColor: tile && tile.valueFontColor !== "" ? tile.valueFontColor : "white"
     property real valueScale: 0.42
-    property color accent: "#7C5CFF"
+    property color accent: "#36F08F"
     property real valueSideInset: 0
 
     radius: 18

@@ -81,6 +81,24 @@ Page {
                 Accessible.focusable: true
             }
 
+            // A long press syncs again: the startup sync rewrites this folder, so it can't run while it is open
+            RoundButton {
+                anchors.verticalCenter: parent.verticalCenter
+                width: 48
+                height: 48
+                icon.source: "icons/icons/chart.png"
+                icon.width: 22
+                icon.height: 22
+                Material.background: "#171B22"
+                Material.foreground: "white"
+                onClicked: window.openTrainProgramList("training/run/Garmin/Library")
+                onPressAndHold: rootItem.garmin_sync_workout_library()
+
+                Accessible.role: Accessible.Button
+                Accessible.name: qsTr("Garmin workouts")
+                Accessible.focusable: true
+            }
+
             Item {
                 width: 30
                 height: 30
@@ -121,7 +139,7 @@ Page {
             }
             Label {
                 anchors.verticalCenter: parent.verticalCenter
-                width: Math.max(0, bottomBar.width / 2 - row.width / 2 - 126)
+                width: Math.max(0, bottomBar.width / 2 - row.width / 2 - 182)
                 elide: Text.ElideRight
                 maximumLineCount: 2
                 wrapMode: Text.WordWrap

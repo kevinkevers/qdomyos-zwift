@@ -567,27 +567,42 @@ const QString QZSettings::tile_preset_speed_1_enabled = QStringLiteral("tile_pre
 const QString QZSettings::tile_preset_speed_1_order = QStringLiteral("tile_preset_speed_1_order");
 const QString QZSettings::tile_preset_speed_1_value = QStringLiteral("tile_preset_speed_1_value");
 const QString QZSettings::tile_preset_speed_1_label = QStringLiteral("tile_preset_speed_1_label");
-const QString QZSettings::default_tile_preset_speed_1_label = QStringLiteral("5km/h");
+const QString QZSettings::default_tile_preset_speed_1_label = QStringLiteral("7 km/h");
 const QString QZSettings::tile_preset_speed_2_enabled = QStringLiteral("tile_preset_speed_2_enabled");
 const QString QZSettings::tile_preset_speed_2_order = QStringLiteral("tile_preset_speed_2_order");
 const QString QZSettings::tile_preset_speed_2_value = QStringLiteral("tile_preset_speed_2_value");
 const QString QZSettings::tile_preset_speed_2_label = QStringLiteral("tile_preset_speed_2_label");
-const QString QZSettings::default_tile_preset_speed_2_label = QStringLiteral("7 km/h");
+const QString QZSettings::default_tile_preset_speed_2_label = QStringLiteral("8 km/h");
 const QString QZSettings::tile_preset_speed_3_enabled = QStringLiteral("tile_preset_speed_3_enabled");
 const QString QZSettings::tile_preset_speed_3_order = QStringLiteral("tile_preset_speed_3_order");
 const QString QZSettings::tile_preset_speed_3_value = QStringLiteral("tile_preset_speed_3_value");
 const QString QZSettings::tile_preset_speed_3_label = QStringLiteral("tile_preset_speed_3_label");
-const QString QZSettings::default_tile_preset_speed_3_label = QStringLiteral("10 km/h");
+const QString QZSettings::default_tile_preset_speed_3_label = QStringLiteral("9 km/h");
 const QString QZSettings::tile_preset_speed_4_enabled = QStringLiteral("tile_preset_speed_4_enabled");
 const QString QZSettings::tile_preset_speed_4_order = QStringLiteral("tile_preset_speed_4_order");
 const QString QZSettings::tile_preset_speed_4_value = QStringLiteral("tile_preset_speed_4_value");
 const QString QZSettings::tile_preset_speed_4_label = QStringLiteral("tile_preset_speed_4_label");
-const QString QZSettings::default_tile_preset_speed_4_label = QStringLiteral("11 km/h");
+const QString QZSettings::default_tile_preset_speed_4_label = QStringLiteral("10 km/h");
 const QString QZSettings::tile_preset_speed_5_enabled = QStringLiteral("tile_preset_speed_5_enabled");
 const QString QZSettings::tile_preset_speed_5_order = QStringLiteral("tile_preset_speed_5_order");
 const QString QZSettings::tile_preset_speed_5_value = QStringLiteral("tile_preset_speed_5_value");
 const QString QZSettings::tile_preset_speed_5_label = QStringLiteral("tile_preset_speed_5_label");
-const QString QZSettings::default_tile_preset_speed_5_label = QStringLiteral("12 km/h");
+const QString QZSettings::default_tile_preset_speed_5_label = QStringLiteral("11 km/h");
+const QString QZSettings::tile_preset_speed_6_enabled = QStringLiteral("tile_preset_speed_6_enabled");
+const QString QZSettings::tile_preset_speed_6_order = QStringLiteral("tile_preset_speed_6_order");
+const QString QZSettings::tile_preset_speed_6_value = QStringLiteral("tile_preset_speed_6_value");
+const QString QZSettings::tile_preset_speed_6_label = QStringLiteral("tile_preset_speed_6_label");
+const QString QZSettings::default_tile_preset_speed_6_label = QStringLiteral("12 km/h");
+const QString QZSettings::tile_preset_speed_7_enabled = QStringLiteral("tile_preset_speed_7_enabled");
+const QString QZSettings::tile_preset_speed_7_order = QStringLiteral("tile_preset_speed_7_order");
+const QString QZSettings::tile_preset_speed_7_value = QStringLiteral("tile_preset_speed_7_value");
+const QString QZSettings::tile_preset_speed_7_label = QStringLiteral("tile_preset_speed_7_label");
+const QString QZSettings::default_tile_preset_speed_7_label = QStringLiteral("13 km/h");
+const QString QZSettings::tile_preset_speed_8_enabled = QStringLiteral("tile_preset_speed_8_enabled");
+const QString QZSettings::tile_preset_speed_8_order = QStringLiteral("tile_preset_speed_8_order");
+const QString QZSettings::tile_preset_speed_8_value = QStringLiteral("tile_preset_speed_8_value");
+const QString QZSettings::tile_preset_speed_8_label = QStringLiteral("tile_preset_speed_8_label");
+const QString QZSettings::default_tile_preset_speed_8_label = QStringLiteral("14 km/h");
 const QString QZSettings::tile_preset_inclination_1_enabled = QStringLiteral("tile_preset_inclination_1_enabled");
 const QString QZSettings::tile_preset_inclination_1_order = QStringLiteral("tile_preset_inclination_1_order");
 const QString QZSettings::tile_preset_inclination_1_value = QStringLiteral("tile_preset_inclination_1_value");
@@ -633,6 +648,12 @@ const QString QZSettings::tile_preset_speed_4_color = QStringLiteral("tile_prese
 const QString QZSettings::default_tile_preset_speed_4_color = QStringLiteral("grey");
 const QString QZSettings::tile_preset_speed_5_color = QStringLiteral("tile_preset_speed_5_color");
 const QString QZSettings::default_tile_preset_speed_5_color = QStringLiteral("grey");
+const QString QZSettings::tile_preset_speed_6_color = QStringLiteral("tile_preset_speed_6_color");
+const QString QZSettings::default_tile_preset_speed_6_color = QStringLiteral("grey");
+const QString QZSettings::tile_preset_speed_7_color = QStringLiteral("tile_preset_speed_7_color");
+const QString QZSettings::default_tile_preset_speed_7_color = QStringLiteral("grey");
+const QString QZSettings::tile_preset_speed_8_color = QStringLiteral("tile_preset_speed_8_color");
+const QString QZSettings::default_tile_preset_speed_8_color = QStringLiteral("grey");
 const QString QZSettings::tile_preset_inclination_1_color = QStringLiteral("tile_preset_inclination_1_color");
 const QString QZSettings::default_tile_preset_inclination_1_color = QStringLiteral("grey");
 const QString QZSettings::tile_preset_inclination_2_color = QStringLiteral("tile_preset_inclination_2_color");
@@ -1314,7 +1335,7 @@ const QString QZSettings::android_landscape_cutout_prompt_shown = QStringLiteral
 const QString QZSettings::android_notification_prompt_disabled = QStringLiteral("android_notification_prompt_disabled");
 const QString QZSettings::android_notification_v2 = QStringLiteral("android_notification_v2");
 
-const uint32_t allSettingsCount = 1020;
+const uint32_t allSettingsCount = 1035;
 
 QVariant allSettings[allSettingsCount][2] = {
     {QZSettings::cryptoKeySettingsProfiles, QZSettings::default_cryptoKeySettingsProfiles},
@@ -1788,6 +1809,18 @@ QVariant allSettings[allSettingsCount][2] = {
     {QZSettings::tile_preset_speed_5_order, QZSettings::default_tile_preset_speed_5_order},
     {QZSettings::tile_preset_speed_5_value, QZSettings::default_tile_preset_speed_5_value},
     {QZSettings::tile_preset_speed_5_label, QZSettings::default_tile_preset_speed_5_label},
+    {QZSettings::tile_preset_speed_6_enabled, QZSettings::default_tile_preset_speed_6_enabled},
+    {QZSettings::tile_preset_speed_6_order, QZSettings::default_tile_preset_speed_6_order},
+    {QZSettings::tile_preset_speed_6_value, QZSettings::default_tile_preset_speed_6_value},
+    {QZSettings::tile_preset_speed_6_label, QZSettings::default_tile_preset_speed_6_label},
+    {QZSettings::tile_preset_speed_7_enabled, QZSettings::default_tile_preset_speed_7_enabled},
+    {QZSettings::tile_preset_speed_7_order, QZSettings::default_tile_preset_speed_7_order},
+    {QZSettings::tile_preset_speed_7_value, QZSettings::default_tile_preset_speed_7_value},
+    {QZSettings::tile_preset_speed_7_label, QZSettings::default_tile_preset_speed_7_label},
+    {QZSettings::tile_preset_speed_8_enabled, QZSettings::default_tile_preset_speed_8_enabled},
+    {QZSettings::tile_preset_speed_8_order, QZSettings::default_tile_preset_speed_8_order},
+    {QZSettings::tile_preset_speed_8_value, QZSettings::default_tile_preset_speed_8_value},
+    {QZSettings::tile_preset_speed_8_label, QZSettings::default_tile_preset_speed_8_label},
     {QZSettings::tile_preset_inclination_1_enabled, QZSettings::default_tile_preset_inclination_1_enabled},
     {QZSettings::tile_preset_inclination_1_order, QZSettings::default_tile_preset_inclination_1_order},
     {QZSettings::tile_preset_inclination_1_value, QZSettings::default_tile_preset_inclination_1_value},
@@ -1818,6 +1851,9 @@ QVariant allSettings[allSettingsCount][2] = {
     {QZSettings::tile_preset_speed_3_color, QZSettings::default_tile_preset_speed_3_color},
     {QZSettings::tile_preset_speed_4_color, QZSettings::default_tile_preset_speed_4_color},
     {QZSettings::tile_preset_speed_5_color, QZSettings::default_tile_preset_speed_5_color},
+    {QZSettings::tile_preset_speed_6_color, QZSettings::default_tile_preset_speed_6_color},
+    {QZSettings::tile_preset_speed_7_color, QZSettings::default_tile_preset_speed_7_color},
+    {QZSettings::tile_preset_speed_8_color, QZSettings::default_tile_preset_speed_8_color},
     {QZSettings::tile_preset_inclination_1_color, QZSettings::default_tile_preset_inclination_1_color},
     {QZSettings::tile_preset_inclination_2_color, QZSettings::default_tile_preset_inclination_2_color},
     {QZSettings::tile_preset_inclination_3_color, QZSettings::default_tile_preset_inclination_3_color},
